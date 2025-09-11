@@ -80,7 +80,7 @@ blueprint:
     
     brightness_level:
       name: Brightness Level
-      description: The brightness of the lights
+      description: The starting brightness of the lights. You can adjust brightness while the scene is running.
       default: 65
       selector:
         number:
@@ -126,6 +126,15 @@ actions:
                 {{ states(condition_entity) == condition_state }}
               {% endif %}
         sequence:
+          # Set initial brightness for all lights
+          - repeat:
+              for_each: !input target_lights
+              sequence:
+                - service: light.turn_on
+                  target:
+                    entity_id: "{{ repeat.item }}"
+                  data:
+                    brightness_pct: "{{ brightness_level }}"
           - repeat:
               while:
                 - condition: state
