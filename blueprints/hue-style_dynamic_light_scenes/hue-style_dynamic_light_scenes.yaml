@@ -1,6 +1,14 @@
 blueprint:
   name: Dynamic Light Scene - Just like HUE
-  description: Creates a dynamic light scene where each selected light cycles independently through the selected colors, with optional conditions and a final scene.
+  description: >
+    Creates a dynamic light scene where each selected light cycles
+    independently through the selected colors, with optional conditions and
+    a final scene.
+    
+    COLORS NOTE:
+    - The color inputs accept XY values only for now. Use an online convert to find values.
+      https://viereck.ch/hue-xy-rgb/
+    - Optional colors can be left blank to exclude them from the cycle.
   domain: automation
   input:
     trigger_boolean:
