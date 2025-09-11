@@ -17,41 +17,42 @@ blueprint:
         entity:
           domain: light
           multiple: true
+    
     color_1:
-      name: Color 1 (XY coordinates)
-      default: [0.675, 0.322]
+      name: Color 1
+      default: [255, 102, 102]
       selector:
-        object:
+        color_rgb:
     color_2:
-      name: Color 2 (XY coordinates)
-      default: [0.214, 0.709]
+      name: Color 2
+      default: [102, 255, 102]
       selector:
-        object:
+        color_rgb:
     color_3:
-      name: Color 3 (XY coordinates)
-      default: [0.153, 0.048]
+      name: Color 3
+      default: [102, 102, 255]
       selector:
-        object:
+        color_rgb:
     color_4:
-      name: Color 4 (XY coordinates, optional)
+      name: Color 4
       default: []
       selector:
-        object:
+        color_rgb:
     color_5:
-      name: Color 5 (XY coordinates, optional)
+      name: Color 5
       default: []
       selector:
-        object:
+        color_rgb:
     color_6:
-      name: Color 6 (XY coordinates, optional)
+      name: Color 6
       default: []
       selector:
-        object:
+        color_rgb:
     color_7:
-      name: Color 7 (XY coordinates, optional)
+      name: Color 7
       default: []
       selector:
-        object:
+        color_rgb:
 
     condition_entity:
       name: Condition Entity (Optional)
@@ -139,13 +140,42 @@ actions:
                             {{ (transition_time - 1 + (range(0, 200) | random) / 100) | round(2) }}
                           available_colors: >-
                             {% set colors = [] %}
-                            {% if color_1 | length > 0 %}{% set colors = colors + [color_1] %}{% endif %}
-                            {% if color_2 | length > 0 %}{% set colors = colors + [color_2] %}{% endif %}
-                            {% if color_3 | length > 0 %}{% set colors = colors + [color_3] %}{% endif %}
-                            {% if color_4 | length > 0 %}{% set colors = colors + [color_4] %}{% endif %}
-                            {% if color_5 | length > 0 %}{% set colors = colors + [color_5] %}{% endif %}
-                            {% if color_6 | length > 0 %}{% set colors = colors + [color_6] %}{% endif %}
-                            {% if color_7 | length > 0 %}{% set colors = colors + [color_7] %}{% endif %}
+                            {%- macro rgb_to_xy(r, g, b) -%}
+                              {%- set r = r / 255.0 -%}
+                              {%- set g = g / 255.0 -%}
+                              {%- set b = b / 255.0 -%}
+                              {%- if r > 0.04045 -%}
+                                {%- set r = ((r + 0.055) / 1.055) ** 2.4 -%}
+                              {%- else -%}
+                                {%- set r = r / 12.92 -%}
+                              {%- endif -%}
+                              {%- if g > 0.04045 -%}
+                                {%- set g = ((g + 0.055) / 1.055) ** 2.4 -%}
+                              {%- else -%}
+                                {%- set g = g / 12.92 -%}
+                              {%- endif -%}
+                              {%- if b > 0.04045 -%}
+                                {%- set b = ((b + 0.055) / 1.055) ** 2.4 -%}
+                              {%- else -%}
+                                {%- set b = b / 12.92 -%}
+                              {%- endif -%}
+                              {%- set X = r * 0.4124 + g * 0.3576 + b * 0.1805 -%}
+                              {%- set Y = r * 0.2126 + g * 0.7152 + b * 0.0722 -%}
+                              {%- set Z = r * 0.0193 + g * 0.1192 + b * 0.9505 -%}
+                              {%- set sum_xyz = X + Y + Z -%}
+                              {%- if sum_xyz == 0 -%}
+                                [0.3127, 0.3290]
+                              {%- else -%}
+                                [{{ (X / sum_xyz) | round(4) }}, {{ (Y / sum_xyz) | round(4) }}]
+                              {%- endif -%}
+                            {%- endmacro -%}
+                            {% if color_1 | length > 0 %}{% set colors = colors + [rgb_to_xy(color_1[0], color_1[1], color_1[2])] %}{% endif %}
+                            {% if color_2 | length > 0 %}{% set colors = colors + [rgb_to_xy(color_2[0], color_2[1], color_2[2])] %}{% endif %}
+                            {% if color_3 | length > 0 %}{% set colors = colors + [rgb_to_xy(color_3[0], color_3[1], color_3[2])] %}{% endif %}
+                            {% if color_4 | length > 0 %}{% set colors = colors + [rgb_to_xy(color_4[0], color_4[1], color_4[2])] %}{% endif %}
+                            {% if color_5 | length > 0 %}{% set colors = colors + [rgb_to_xy(color_5[0], color_5[1], color_5[2])] %}{% endif %}
+                            {% if color_6 | length > 0 %}{% set colors = colors + [rgb_to_xy(color_6[0], color_6[1], color_6[2])] %}{% endif %}
+                            {% if color_7 | length > 0 %}{% set colors = colors + [rgb_to_xy(color_7[0], color_7[1], color_7[2])] %}{% endif %}
                             {{ colors }}
                       - service: light.turn_on
                         target:
