@@ -29,10 +29,6 @@ If the input trigger is pulled, and the state machine is in the desired state, t
 Transition time in seconds between switching from one color to another
 <img width="966" height="87" alt="image" src="https://github.com/user-attachments/assets/40fd22ad-4361-4e4a-896f-579d076f1dca" />
 
-### Brightness
-The total brightness of the lights
-<img width="980" height="97" alt="image" src="https://github.com/user-attachments/assets/dbd31d69-5492-4c0e-99dc-2fb5f964f0f5" />
-
 ### Exit scene
 An exit scene. When the input boolean is no longer on, the automation exits to this scene.
 If left empty, then it jus simply stops and the lights stay the way they were at the time of the switch off.
