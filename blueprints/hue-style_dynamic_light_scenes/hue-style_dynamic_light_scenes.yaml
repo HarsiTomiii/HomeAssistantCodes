@@ -78,17 +78,6 @@ blueprint:
           step: 1
           unit_of_measurement: seconds
     
-    brightness_level:
-      name: Brightness Level
-      description: The starting brightness of the lights. You can adjust brightness while the scene is running.
-      default: 65
-      selector:
-        number:
-          min: 1
-          max: 100
-          step: 1
-          unit_of_measurement: "%"
-    
     final_scene:
       name: Final Scene (Optional)
       description: After switching off the trigger input, this is the scene that gets activated
@@ -126,15 +115,6 @@ actions:
                 {{ states(condition_entity) == condition_state }}
               {% endif %}
         sequence:
-          # Set initial brightness for all lights
-          - repeat:
-              for_each: !input target_lights
-              sequence:
-                - service: light.turn_on
-                  target:
-                    entity_id: "{{ repeat.item }}"
-                  data:
-                    brightness_pct: "{{ brightness_level }}"
           - repeat:
               while:
                 - condition: state
@@ -220,7 +200,6 @@ variables:
   condition_entity: !input condition_entity
   condition_state: !input condition_state
   transition_time: !input transition_time
-  brightness_level: !input brightness_level
   final_scene: !input final_scene
 
 mode: restart
