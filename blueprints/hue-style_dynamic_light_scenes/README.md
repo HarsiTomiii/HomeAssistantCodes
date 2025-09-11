@@ -17,10 +17,7 @@ If you add a light group, then the group will be handled as 1 light, so the indi
 ### Colors to loop through
 You can add 7 different colors to the loop.
 Leave empty the ones you don't need.
-You need to use XY color codes as the example shows.
-You can use this site for RGB conversion
-  https://viereck.ch/hue-xy-rgb/
-<img width="961" height="644" alt="image" src="https://github.com/user-attachments/assets/7cb4d610-7e0c-4259-88ed-208365b8868c" />
+<img width="961" height="248" alt="image" src="https://github.com/user-attachments/assets/48fd5aba-65de-4f7f-82d4-9ea4e8db808a" />
 
 ### Conditional entity
 You can set a conditional entity.
