@@ -192,7 +192,6 @@ actions:
                         data:
                           transition: "{{ random_transition }}"
                           xy_color: "{{ available_colors | random }}"
-                          brightness_pct: "{{ brightness_level }}"
                 - delay:
                     seconds: "{{ transition_time + 1 }}"
       
