@@ -32,4 +32,4 @@ schema:
   PGID: int
   TZ: str
   APP_DATA_DIR: str
-image: "nandyalu/trailarr:latest"
+image: "nandyalu/trailarr"
