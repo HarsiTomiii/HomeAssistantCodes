@@ -1,6 +1,6 @@
 name: "Trailarr"
 description: "Download and manage trailers for your Radarr and Sonarr libraries"
-version: "0.7.0"
+version: "0.9.0"
 slug: "trailarr"
 url: "https://github.com/nandyalu/trailarr"
 arch:
