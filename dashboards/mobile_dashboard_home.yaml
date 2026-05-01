@@ -1,0 +1,3897 @@
+button_card_templates:
+  global_vars:
+    variables:
+      small_icon_card_width: 20px
+      small_icon_card_height: 35px
+      small_icon_size: 20px
+      small_icon_border_radius: 99px
+      small_icon_border_style: none
+      small_icon_box_shadow: none
+      small_icon_background_color: rgba(50,50,50,0.01)
+      room_card_border_radius: 30px
+      large_icon_color_inactive: rgba(255,255,255,1)
+      large_icon_color_active: rgba(255,255,255,1)
+      color_active: rgba(255, 193, 27, 1)
+      color_inactive: rgba(90, 90, 90, 1)
+      color_error: rgba(255, 90, 90, 1)
+      color_unavailable: rgba(150, 150, 150, 0.5)
+  small_icon_button:
+    template: global_vars
+    show_name: false
+    styles:
+      card:
+        - width: '[[[ return variables.small_icon_card_width ]]]'
+        - height: '[[[ return variables.small_icon_card_height ]]]'
+        - border-radius: '[[[ return variables.small_icon_border_radius ]]]'
+        - border-style: '[[[ return variables.small_icon_border_style ]]]'
+        - box-shadow: '[[[ return variables.small_icon_box_shadow ]]]'
+        - background-color: '[[[ return variables.small_icon_background_color ]]]'
+      icon:
+        - width: '[[[ return variables.small_icon_size ]]]'
+    state:
+      - value: 'on'
+        styles:
+          icon:
+            - color: '[[[ return variables.color_active ]]]'
+      - value: 'off'
+        styles:
+          icon:
+            - color: '[[[ return variables.color_inactive ]]]'
+  window_sensor_button:
+    template: global_vars
+    show_name: false
+    icon: mdi:window-closed-variant
+    styles:
+      card:
+        - width: '[[[ return variables.small_icon_card_width ]]]'
+        - height: '[[[ return variables.small_icon_card_height ]]]'
+        - border-radius: '[[[ return variables.small_icon_border_radius ]]]'
+        - border-style: '[[[ return variables.small_icon_border_style ]]]'
+        - box-shadow: '[[[ return variables.small_icon_box_shadow ]]]'
+        - background-color: '[[[ return variables.small_icon_background_color ]]]'
+      icon:
+        - width: '[[[ return variables.small_icon_size ]]]'
+    state:
+      - value: 'off'
+        styles:
+          icon:
+            - color: '[[[ return variables.color_inactive ]]]'
+      - value: 'on'
+        icon: mdi:window-open-variant
+        styles:
+          icon:
+            - color: '[[[ return variables.color_active ]]]'
+      - value: unknown
+        styles:
+          icon:
+            - color: '[[[ return variables.color_unavailable ]]]'
+  light_button:
+    template: global_vars
+    show_name: false
+    icon: mdi:lamp
+    styles:
+      card:
+        - width: '[[[ return variables.small_icon_card_width ]]]'
+        - height: '[[[ return variables.small_icon_card_height ]]]'
+        - border-radius: '[[[ return variables.small_icon_border_radius ]]]'
+        - border-style: '[[[ return variables.small_icon_border_style ]]]'
+        - box-shadow: '[[[ return variables.small_icon_box_shadow ]]]'
+        - background-color: '[[[ return variables.small_icon_background_color ]]]'
+      icon:
+        - width: '[[[ return variables.small_icon_size ]]]'
+    state:
+      - value: 'off'
+        styles:
+          icon:
+            - color: '[[[ return variables.color_inactive ]]]'
+      - value: 'on'
+        styles:
+          icon:
+            - color: '[[[ return variables.color_active ]]]'
+  speaker_button:
+    template: global_vars
+    show_name: false
+    icon: mdi:speaker
+    styles:
+      card:
+        - width: '[[[ return variables.small_icon_card_width ]]]'
+        - height: '[[[ return variables.small_icon_card_height ]]]'
+        - border-radius: '[[[ return variables.small_icon_border_radius ]]]'
+        - border-style: '[[[ return variables.small_icon_border_style ]]]'
+        - box-shadow: '[[[ return variables.small_icon_box_shadow ]]]'
+        - background-color: '[[[ return variables.small_icon_background_color ]]]'
+      icon:
+        - width: '[[[ return variables.small_icon_size ]]]'
+    state:
+      - value: 'off'
+        styles:
+          icon:
+            - color: '[[[ return variables.color_inactive ]]]'
+      - value: 'on'
+        styles:
+          icon:
+            - color: '[[[ return variables.color_active ]]]'
+  door_sensor_button:
+    template: global_vars
+    show_name: false
+    icon: mdi:door-closed
+    styles:
+      card:
+        - width: '[[[ return variables.small_icon_card_width ]]]'
+        - height: '[[[ return variables.small_icon_card_height ]]]'
+        - border-radius: '[[[ return variables.small_icon_border_radius ]]]'
+        - border-style: '[[[ return variables.small_icon_border_style ]]]'
+        - box-shadow: '[[[ return variables.small_icon_box_shadow ]]]'
+        - background-color: '[[[ return variables.small_icon_background_color ]]]'
+      icon:
+        - width: '[[[ return variables.small_icon_size ]]]'
+    state:
+      - value: 'off'
+        styles:
+          icon:
+            - color: '[[[ return variables.color_inactive ]]]'
+      - value: 'on'
+        icon: mdi:door-open
+        styles:
+          icon:
+            - color: '[[[ return variables.color_active ]]]'
+      - value: unknown
+        styles:
+          icon:
+            - color: '[[[ return variables.color_unavailable ]]]'
+  vacuum_button:
+    template: global_vars
+    show_name: false
+    icon: mdi:robot-vacuum
+    styles:
+      card:
+        - width: '[[[ return variables.small_icon_card_width ]]]'
+        - height: '[[[ return variables.small_icon_card_height ]]]'
+        - border-radius: '[[[ return variables.small_icon_border_radius ]]]'
+        - border-style: '[[[ return variables.small_icon_border_style ]]]'
+        - box-shadow: '[[[ return variables.small_icon_box_shadow ]]]'
+        - background-color: '[[[ return variables.small_icon_background_color ]]]'
+      icon:
+        - width: '[[[ return variables.small_icon_size ]]]'
+    state:
+      - value: docked
+        styles:
+          icon:
+            - color: '[[[ return variables.color_inactive ]]]'
+      - value: error
+        styles:
+          icon:
+            - color: '[[[ return variables.color_error ]]]'
+      - value: unavailable
+        styles:
+          icon:
+            - color: '[[[ return variables.color_error ]]]'
+  leak_button:
+    template: global_vars
+    show_name: false
+    icon: mdi:water-off-outline
+    styles:
+      card:
+        - width: '[[[ return variables.small_icon_card_width ]]]'
+        - height: '[[[ return variables.small_icon_card_height ]]]'
+        - border-radius: '[[[ return variables.small_icon_border_radius ]]]'
+        - border-style: '[[[ return variables.small_icon_border_style ]]]'
+        - box-shadow: '[[[ return variables.small_icon_box_shadow ]]]'
+        - background-color: '[[[ return variables.small_icon_background_color ]]]'
+      icon:
+        - width: '[[[ return variables.small_icon_size ]]]'
+    state:
+      - value: 'off'
+        styles:
+          icon:
+            - color: '[[[ return variables.color_inactive ]]]'
+      - value: 'on'
+        icon: mdi:water-alert
+        styles:
+          icon:
+            - color: '[[[ return variables.color_error ]]]'
+      - value: unknown
+        styles:
+          icon:
+            - color: '[[[ return variables.color_unavailable ]]]'
+  presence_button:
+    template: global_vars
+    show_name: false
+    icon: mdi:motion-sensor
+    styles:
+      card:
+        - width: '[[[ return variables.small_icon_card_width ]]]'
+        - height: '[[[ return variables.small_icon_card_height ]]]'
+        - border-radius: '[[[ return variables.small_icon_border_radius ]]]'
+        - border-style: '[[[ return variables.small_icon_border_style ]]]'
+        - box-shadow: '[[[ return variables.small_icon_box_shadow ]]]'
+        - background-color: '[[[ return variables.small_icon_background_color ]]]'
+      icon:
+        - width: '[[[ return variables.small_icon_size ]]]'
+    state:
+      - value: 'on'
+        styles:
+          icon:
+            - color: '[[[ return variables.color_active ]]]'
+      - value: 'off'
+        styles:
+          icon:
+            - color: '[[[ return variables.color_inactive ]]]'
+      - value: unknown
+        styles:
+          icon:
+            - color: '[[[ return variables.color_unavailable ]]]'
+  room_card:
+    template: global_vars
+    show_state: true
+    custom_fields:
+      btn:
+        card:
+          type: horizontal-stack
+          card_mod:
+            style: |
+              ha-card {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+    styles:
+      card:
+        - display: flex
+        - flex-direction: column
+        - align-items: center
+        - justify-content: center
+        - border-radius: '[[[ return variables.room_card_border_radius ]]]'
+        - padding: 15px 0px 10px 0px
+      grid:
+        - grid-template-areas: '"i" "n" "s" "btn"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: auto auto auto auto
+      icon:
+        - align-self: center
+        - width: 30px
+        - color: '[[[ return variables.large_icon_color_active ]]]'
+      name:
+        - font-size: 19px
+        - font-weight: 600
+        - color: rgba(255,255,255,1)
+        - text-align: center
+        - align-self: center
+      state:
+        - min-height: 0px
+        - font-size: 15px
+        - font-weight: 0
+        - color: rgba(150,150,150,1)
+        - text-align: center
+        - align-self: center
+      custom_fields:
+        btn:
+          - display: flex
+          - justify-content: center
+          - align-items: center
+kiosk_mode:
+  mobile_settings:
+    hide_header: true
+views:
+  - title: Home
+    icon: mdi:home
+    cards: []
+    type: sections
+    max_columns: 4
+    sections:
+      - type: grid
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: custom:button-card
+                    show_icon: false
+                    show_name: false
+                    show_state: false
+                    custom_fields:
+                      time: |
+                        [[[
+                          return `<div style="font-size:64px;font-weight:600;">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                                  <div style="font-size:20px;opacity:0.8;">${new Date().toLocaleDateString([], {weekday:'short', day:'2-digit', month:'short'})}</div>`;
+                        ]]]
+                    styles:
+                      card:
+                        - background: none
+                        - box-shadow: none
+                        - border: none
+                      custom_fields:
+                        time:
+                          - text-align: center
+                  - type: custom:weather-card
+                    entity: weather.forecast_home
+                    details: false
+                    forecast: false
+                    hourly_forecast: false
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: none;
+                          box-shadow: none;
+                          border: none;
+                        }
+              - type: custom:mushroom-chips-card
+                alignment: center
+                chips:
+                  - type: entity
+                    entity: person.tamas_harshegyi
+                    use_entity_picture: true
+                  - type: entity
+                    entity: person.andrejka
+                    use_entity_picture: true
+                  - type: entity
+                    entity: person.sylvester
+                    use_entity_picture: true
+                  - type: entity
+                    entity: sensor.lights_on
+                    state:
+                      - value: 3
+                        icon: mdi:lightbulb
+                        styles:
+                          icon:
+                            - color: rgba(155,0,155,1)
+                    tap_action:
+                      action: perform-action
+                      perform_action: light.turn_off
+                      target:
+                        entity_id: light.all_lights
+                      data: {}
+          - type: custom:mushroom-chips-card
+            alignment: center
+            chips:
+              - type: template
+                entity: input_select.state_machine
+                icon: >
+                  {% if is_state('input_select.state_machine', 'HomeAwake') %}
+                    mdi:home-account
+                  {% elif is_state('input_select.state_machine', 'EmptyHouse')
+                  %}
+                    mdi:home-export-outline
+                  {% elif is_state('input_select.state_machine', 'MovieTime') %}
+                    mdi:video-vintage
+                  {% elif is_state('input_select.state_machine', 'SexyTime') %}
+                    mdi:hand-heart
+                  {% elif is_state('input_select.state_machine', 'Alarm') %}
+                    mdi:alert-octagram
+                  {% elif is_state('input_select.state_machine', 'Sleeping') %}
+                    mdi:sleep
+                  {% else %}
+                    mdi:help-circle
+                  {% endif %}
+                content: '{{ states(''input_select.state_machine'') }}'
+                tap_action:
+                  action: more-info
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: none;
+                      box-shadow: none;
+                      border: none;
+                    }
+              - type: template
+                entity: sensor.average_house_temperature
+                icon: mdi:thermometer
+                content: '{{ states(''sensor.average_house_temperature'') }} °C'
+                tap_action:
+                  action: more-info
+                card_mod:
+                  style: |
+                    ha-card {
+                      --chip-background: none;
+                      box-shadow: none;
+                      border: none;
+                    }
+          - type: media-control
+            entity: media_player.living_room_tv_3
+            visibility:
+              - condition: state
+                entity: media_player.living_room_tv_3
+                state: playing
+            card_mod:
+              style: |
+                ha-card {
+                  overflow: hidden;
+                  backdrop-filter: blur(20px);
+                }
+        column_span: 1
+      - type: grid
+        columns: 2
+        cards:
+          - square: false
+            type: grid
+            cards:
+              - type: custom:button-card
+                template: room_card
+                name: Bedroom
+                icon: mdi:bed
+                tap_action:
+                  action: navigate
+                  navigation_path: '#bedroom'
+                entity: sensor.bedroom_temperature_sensor_temperature
+                custom_fields:
+                  btn:
+                    card:
+                      type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          template: light_button
+                          tap_action:
+                            action: toggle
+                          entity: light.bedroom_lights
+                          icon: mdi:lamp
+                        - type: custom:button-card
+                          template: speaker_button
+                          entity: media_player.bedroom_speaker
+                        - type: custom:button-card
+                          template: window_sensor_button
+                          entity: binary_sensor.bedroom_window_sensor_contact
+                        - type: custom:button-card
+                          template: presence_button
+                          entity: binary_sensor.bedroom_presence_detector_presence
+                        - type: custom:button-card
+                          template: leak_button
+                          entity: binary_sensor.bedroom_bathroom_leak_sensor
+                      card_mod:
+                        style: |
+                          ha-card {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                          }
+              - type: custom:button-card
+                template: room_card
+                name: Living Room
+                icon: mdi:sofa
+                tap_action:
+                  action: navigate
+                  navigation_path: '#livingroom'
+                double_tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/livingroom
+                entity: sensor.living_room_temperature_sensor_temperature
+                custom_fields:
+                  btn:
+                    card:
+                      type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          template: light_button
+                          tap_action:
+                            action: toggle
+                          entity: light.living_room_lights
+                        - type: custom:button-card
+                          template: door_sensor_button
+                          entity: binary_sensor.living_room_door_sensor_contact
+                        - type: custom:button-card
+                          template: presence_button
+                          entity: binary_sensor.living_room_presence_detector_presence
+                        - type: custom:button-card
+                          template: vacuum_button
+                          entity: vacuum.geoffrey
+                      card_mod:
+                        style: |
+                          ha-card {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                          }
+              - type: custom:button-card
+                template: room_card
+                name: Office
+                icon: mdi:desk
+                tap_action:
+                  action: navigate
+                  navigation_path: '#office'
+                entity: sensor.office_temperature_sensor_temperature
+                custom_fields:
+                  btn:
+                    card:
+                      type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          template: light_button
+                          tap_action:
+                            action: toggle
+                          entity: light.office_lights
+                          icon: mdi:desk-lamp
+                        - type: custom:button-card
+                          template: speaker_button
+                          entity: media_player.office_speaker
+                        - type: custom:button-card
+                          template: window_sensor_button
+                          entity: binary_sensor.office_window_sensor_contact
+                        - type: custom:button-card
+                          template: presence_button
+                          entity: binary_sensor.office_presence_detector_presence
+                      card_mod:
+                        style: |
+                          ha-card {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                          }
+              - type: custom:button-card
+                template: room_card
+                name: Entree
+                icon: mdi:door-closed-lock
+                tap_action:
+                  action: navigate
+                  navigation_path: '#entree'
+                entity: binary_sensor.front_door_sensor_contact
+                custom_fields:
+                  btn:
+                    card:
+                      type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          template: light_button
+                          tap_action:
+                            action: toggle
+                          entity: light.entree_lights
+                        - type: custom:button-card
+                          template: door_sensor_button
+                          entity: binary_sensor.front_door_sensor_contact
+                        - type: custom:button-card
+                          template: presence_button
+                          entity: event.front_garden_camera_motion_2
+                        - type: custom:button-card
+                          template: leak_button
+                          entity: binary_sensor.bryggers_leak_sensor_1_water_leak
+                      card_mod:
+                        style: |
+                          ha-card {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                          }
+              - type: custom:button-card
+                template: room_card
+                name: Guest Room
+                icon: mdi:account-multiple
+                tap_action:
+                  action: navigate
+                  navigation_path: '#guestroom'
+                entity: sensor.guest_room_temperature_sensor_temperature
+                custom_fields:
+                  btn:
+                    card:
+                      type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          template: light_button
+                          tap_action:
+                            action: toggle
+                          entity: light.guest_room_lights
+                      card_mod:
+                        style: |
+                          ha-card {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                          }
+              - type: custom:button-card
+                template: room_card
+                name: Kitchen
+                icon: mdi:silverware-fork-knife
+                tap_action:
+                  action: navigate
+                  navigation_path: '#kitchen'
+                entity: sensor.soil_sensor_03_temperature
+                custom_fields:
+                  btn:
+                    card:
+                      type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          template: speaker_button
+                          entity: media_player.kitchen_speaker
+                        - type: custom:button-card
+                          template: window_sensor_button
+                          entity: binary_sensor.kitchen_window_sensor_contact
+                      card_mod:
+                        style: |
+                          ha-card {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                          }
+              - type: custom:button-card
+                template: room_card
+                name: Bathroom
+                icon: mdi:shower-head
+                tap_action:
+                  action: navigate
+                  navigation_path: '#bathroom'
+                entity: sensor.bathroom_temperature_sensor_temperature
+                custom_fields:
+                  btn:
+                    card:
+                      type: horizontal-stack
+                      cards:
+                        - type: custom:button-card
+                          template: speaker_button
+                          entity: media_player.bathroom_speaker
+                        - type: custom:button-card
+                          template: leak_button
+                          entity: binary_sensor.bathroom_leak_sensor
+                      card_mod:
+                        style: |
+                          ha-card {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                          }
+            columns: 2
+        column_span: 1
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:floor-plan
+            heading: Rooms
+            heading_style: title
+            visibility:
+              - condition: screen
+                media_query: '(min-width: 1024px) and (max-width: 1279px)'
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#bedroom'
+                hide_backdrop: false
+                margin_top_mobile: 10px
+                bg_blur: 0
+                show_header: true
+                name: Bedroom
+                icon: mdi:bed-king-outline
+                show_state: true
+                bg_opacity: '100'
+                show_last_changed: true
+                show_attribute: false
+                sub_button:
+                  main:
+                    - entity: binary_sensor.bedroom_presence_detector_presence
+                      show_state: true
+                      show_last_changed: true
+                  bottom: []
+                button_type: name
+              - type: horizontal-stack
+                cards:
+                  - type: custom:apexcharts-card
+                    graph_span: 24h
+                    header:
+                      show: true
+                      title: ''
+                      show_states: true
+                      colorize_states: true
+                    yaxis:
+                      - id: temp
+                        show: false
+                      - id: humidity
+                        show: false
+                    apex_config:
+                      xaxis:
+                        labels:
+                          show: false
+                        axisBorder:
+                          show: false
+                        axisTicks:
+                          show: false
+                        tooltip:
+                          enabled: false
+                      chart:
+                        height: 100
+                      stroke:
+                        width: 3
+                        curve: smooth
+                      grid:
+                        show: false
+                      legend:
+                        show: false
+                      tooltip:
+                        enabled: true
+                    series:
+                      - entity: sensor.bedroom_temperature_sensor_temperature
+                        yaxis_id: temp
+                        name: Temperature
+                        type: area
+                        color: '#ff8a65'
+                        opacity: 0.15
+                      - entity: sensor.bedroom_temperature_sensor_humidity
+                        yaxis_id: humidity
+                        name: Humidity
+                        type: area
+                        color: '#4fc3f7'
+                        opacity: 0.15
+              - type: vertical-stack
+                cards:
+                  - type: heading
+                    icon: mdi:lamps
+                    heading: Lights
+                    heading_style: subtitle
+                    badges:
+                      - type: entity
+                        entity: sensor.bedroom_presence_detector_illuminance
+                  - type: custom:mushroom-light-card
+                    entity: light.bedroom_lights
+                    show_brightness_control: true
+                    show_color_control: true
+                    show_color_temp_control: true
+                    use_light_color: true
+                    collapsible_controls: false
+                    layout: horizontal
+                    fill_container: false
+                  - type: custom:rgb-light-card
+                    entity: light.bedroom_lights
+                    size: 30
+                    justify: center
+                    colors:
+                      - rgb_color:
+                          - 255
+                          - 255
+                          - 255
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 193
+                          - 141
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 136
+                          - 13
+                        transition: 1
+                      - rgb_color:
+                          - 205
+                          - 0
+                          - 255
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 0
+                          - 0
+                        transition: 1
+                      - rgb_color:
+                          - 0
+                          - 255
+                          - 0
+                        transition: 1
+                      - rgb_color:
+                          - 0
+                          - 0
+                          - 255
+                        transition: 1
+                  - square: false
+                    type: grid
+                    cards:
+                      - type: custom:mushroom-light-card
+                        entity: light.philips_hue_indoor_strip_02
+                        layout: vertical
+                        show_brightness_control: true
+                        use_light_color: true
+                        show_color_temp_control: false
+                        collapsible_controls: true
+                        show_color_control: false
+                      - type: custom:mushroom-light-card
+                        entity: light.philips_hue_indoor_strip_01
+                        layout: vertical
+                        show_brightness_control: true
+                        use_light_color: true
+                        show_color_temp_control: false
+                        collapsible_controls: true
+                    columns: 2
+              - type: heading
+                icon: mdi:surround-sound
+                heading_style: subtitle
+                heading: Media
+              - type: custom:mini-media-player
+                entity: media_player.bedroom_speaker
+                group: true
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#livingroom'
+                bg_blur: 0
+                hide_backdrop: false
+                margin_top_mobile: 10px
+                bg_opacity: '100'
+                show_header: true
+                name: Living Room
+                icon: mdi:sofa-outline
+                show_last_changed: true
+                show_attribute: false
+                show_state: true
+                sub_button:
+                  main:
+                    - entity: binary_sensor.living_room_presence_detector_presence
+                      show_state: true
+                      show_last_changed: true
+                  bottom: []
+                button_type: name
+              - type: horizontal-stack
+                cards:
+                  - type: custom:apexcharts-card
+                    graph_span: 24h
+                    header:
+                      show: true
+                      title: ''
+                      show_states: true
+                      colorize_states: true
+                    yaxis:
+                      - id: temp
+                        show: false
+                      - id: humidity
+                        show: false
+                    apex_config:
+                      xaxis:
+                        labels:
+                          show: false
+                        axisBorder:
+                          show: false
+                        axisTicks:
+                          show: false
+                        tooltip:
+                          enabled: false
+                      chart:
+                        height: 100
+                      stroke:
+                        width: 3
+                        curve: smooth
+                      grid:
+                        show: false
+                      legend:
+                        show: false
+                      tooltip:
+                        enabled: true
+                    series:
+                      - entity: sensor.living_room_temperature_sensor_temperature
+                        yaxis_id: temp
+                        name: Temperature
+                        type: area
+                        color: '#ff8a65'
+                        opacity: 0.15
+                      - entity: sensor.living_room_temperature_sensor_humidity
+                        yaxis_id: humidity
+                        name: Humidity
+                        type: area
+                        color: '#4fc3f7'
+                        opacity: 0.15
+              - type: vertical-stack
+                cards:
+                  - type: heading
+                    icon: mdi:lamps
+                    heading: Lights
+                    heading_style: subtitle
+                    badges:
+                      - type: entity
+                        entity: sensor.living_room_presence_detector_illuminance
+                  - type: custom:mushroom-light-card
+                    entity: light.living_room_lights
+                    show_brightness_control: true
+                    show_color_control: true
+                    show_color_temp_control: true
+                    use_light_color: true
+                    collapsible_controls: false
+                    layout: horizontal
+                    fill_container: false
+                  - type: custom:rgb-light-card
+                    entity: light.living_room_lights
+                    size: 30
+                    justify: center
+                    colors:
+                      - rgb_color:
+                          - 255
+                          - 255
+                          - 255
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 193
+                          - 141
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 136
+                          - 13
+                        transition: 1
+                      - rgb_color:
+                          - 205
+                          - 0
+                          - 255
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 0
+                          - 0
+                        transition: 1
+                      - rgb_color:
+                          - 0
+                          - 255
+                          - 0
+                        transition: 1
+                      - rgb_color:
+                          - 0
+                          - 0
+                          - 255
+                        transition: 1
+                  - square: false
+                    type: grid
+                    cards:
+                      - type: custom:mushroom-light-card
+                        entity: light.philips_hue_color_bulb_01
+                        layout: vertical
+                        show_brightness_control: true
+                        use_light_color: true
+                        show_color_temp_control: false
+                        collapsible_controls: true
+                        show_color_control: false
+                      - type: custom:mushroom-light-card
+                        entity: light.philips_hue_color_bulb_04
+                        layout: vertical
+                        show_brightness_control: true
+                        use_light_color: true
+                        show_color_temp_control: false
+                        collapsible_controls: true
+                      - type: custom:mushroom-light-card
+                        entity: light.philips_hue_color_bulb_02
+                        layout: vertical
+                        show_brightness_control: true
+                        use_light_color: true
+                        show_color_temp_control: false
+                        collapsible_controls: true
+                      - type: custom:mushroom-light-card
+                        entity: light.philips_hue_color_bulb_03
+                        layout: vertical
+                        show_brightness_control: true
+                        use_light_color: true
+                        show_color_temp_control: false
+                        collapsible_controls: true
+                        fill_container: false
+                    columns: 2
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#office'
+                bg_blur: 0
+                hide_backdrop: false
+                margin_top_mobile: 10px
+                show_header: true
+                name: Office
+                icon: mdi:desk
+                bg_opacity: '100'
+                show_last_changed: true
+                show_state: true
+                force_icon: false
+                sub_button:
+                  main:
+                    - entity: binary_sensor.office_presence_detector_presence
+                      show_state: true
+                      show_last_changed: true
+                  bottom: []
+                button_type: name
+              - type: horizontal-stack
+                cards:
+                  - type: custom:apexcharts-card
+                    graph_span: 24h
+                    header:
+                      show: true
+                      title: ''
+                      show_states: true
+                      colorize_states: true
+                    yaxis:
+                      - id: temp
+                        show: false
+                      - id: humidity
+                        show: false
+                    apex_config:
+                      xaxis:
+                        labels:
+                          show: false
+                        axisBorder:
+                          show: false
+                        axisTicks:
+                          show: false
+                        tooltip:
+                          enabled: false
+                      chart:
+                        height: 100
+                      stroke:
+                        width: 3
+                        curve: smooth
+                      grid:
+                        show: false
+                      legend:
+                        show: false
+                      tooltip:
+                        enabled: true
+                    series:
+                      - entity: sensor.office_temperature_sensor_temperature
+                        yaxis_id: temp
+                        name: Temperature
+                        type: area
+                        color: '#ff8a65'
+                        opacity: 0.15
+                      - entity: sensor.office_temperature_sensor_humidity
+                        yaxis_id: humidity
+                        name: Humidity
+                        type: area
+                        color: '#4fc3f7'
+                        opacity: 0.15
+              - type: vertical-stack
+                cards:
+                  - type: heading
+                    icon: mdi:lamps
+                    heading: Lights
+                    heading_style: subtitle
+                    badges:
+                      - type: entity
+                        show_state: true
+                        show_icon: true
+                        entity: sensor.office_presence_detector_illuminance
+                  - type: custom:mushroom-light-card
+                    entity: light.office_lights
+                    show_brightness_control: true
+                    show_color_control: true
+                    show_color_temp_control: true
+                    use_light_color: true
+                    collapsible_controls: false
+                    layout: horizontal
+                    fill_container: false
+                  - type: custom:rgb-light-card
+                    entity: light.office_lights
+                    size: 30
+                    justify: center
+                    colors:
+                      - rgb_color:
+                          - 255
+                          - 255
+                          - 255
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 193
+                          - 141
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 136
+                          - 13
+                        transition: 1
+                      - rgb_color:
+                          - 205
+                          - 0
+                          - 255
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 0
+                          - 0
+                        transition: 1
+                      - rgb_color:
+                          - 0
+                          - 255
+                          - 0
+                        transition: 1
+                      - rgb_color:
+                          - 0
+                          - 0
+                          - 255
+                        transition: 1
+                  - square: false
+                    type: grid
+                    cards:
+                      - type: custom:mushroom-light-card
+                        entity: light.corner_lamp
+                        layout: vertical
+                        show_brightness_control: true
+                        use_light_color: true
+                        show_color_temp_control: false
+                        collapsible_controls: true
+                        show_color_control: false
+                      - type: custom:mushroom-light-card
+                        entity: light.melk_indoor_strip_01
+                        layout: vertical
+                        show_brightness_control: true
+                        use_light_color: true
+                        show_color_temp_control: false
+                        collapsible_controls: true
+                    columns: 2
+              - type: heading
+                icon: mdi:surround-sound
+                heading_style: subtitle
+                heading: Media
+              - type: custom:mini-media-player
+                entity: media_player.office_speaker
+                group: true
+              - type: custom:frigate-card
+                cameras:
+                  - camera_entity: camera.indoor_tapo
+                live:
+                  controls:
+                    builtin: false
+                    thumbnails:
+                      mode: none
+                    next_previous:
+                      style: none
+                    timeline:
+                      mode: none
+                    ptz:
+                      mode: 'off'
+                  lazy_unload:
+                    - hidden
+                    - unselected
+                menu:
+                  style: none
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#kitchen'
+                bg_blur: 0
+                hide_backdrop: false
+                margin_top_mobile: 10px
+                name: Kitchen
+                icon: mdi:countertop-outline
+                bg_opacity: '100'
+                show_attribute: false
+                show_last_changed: false
+                show_state: true
+                sub_button:
+                  main:
+                    - entity: sensor.bertha_operation_state
+                      show_state: true
+                      show_attribute: false
+                      attribute: options
+                      show_last_changed: true
+                  bottom: []
+                button_type: name
+              - type: tile
+                entity: switch.bertha_power
+                features_position: inline
+                vertical: false
+                visibility:
+                  - condition: state
+                    entity: sensor.bertha_operation_state
+                    state_not: run
+                features:
+                  - type: toggle
+              - type: tile
+                entity: sensor.bertha_operation_state
+                features_position: bottom
+                vertical: false
+              - type: gauge
+                entity: sensor.dishwasher_program_progress
+                min: 0
+                max: 100
+                needle: true
+                name: Progress
+              - type: entities
+                entities:
+                  - entity: sensor.dishwasher_program_finish_time
+                  - entity: sensor.bertha_door
+                  - entity: switch.dishwasher_extra_dry
+                  - entity: select.dishwasher_active_program
+                  - entity: number.dishwasher_start_in_relative
+                  - entity: switch.dishwasher_extra_dry
+                  - entity: binary_sensor.bertha_remote_start
+              - type: custom:mini-media-player
+                entity: media_player.kitchen_speaker
+                volume_stateless: false
+                group: true
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#guestroom'
+                bg_blur: 0
+                hide_backdrop: false
+                margin_top_mobile: 10px
+                show_header: true
+                name: Guest Room
+                icon: mdi:bed-outline
+                bg_opacity: '100'
+                show_last_changed: true
+                show_state: true
+                force_icon: false
+                sub_button:
+                  main:
+                    - entity: binary_sensor.office_presence_detector_presence
+                      show_state: true
+                      show_last_changed: true
+                  bottom: []
+                button_type: name
+              - type: horizontal-stack
+                cards:
+                  - type: custom:apexcharts-card
+                    graph_span: 24h
+                    header:
+                      show: true
+                      title: ''
+                      show_states: true
+                      colorize_states: true
+                    yaxis:
+                      - id: temp
+                        show: false
+                      - id: humidity
+                        show: false
+                    apex_config:
+                      xaxis:
+                        labels:
+                          show: false
+                        axisBorder:
+                          show: false
+                        axisTicks:
+                          show: false
+                        tooltip:
+                          enabled: false
+                      chart:
+                        height: 100
+                      stroke:
+                        width: 3
+                        curve: smooth
+                      grid:
+                        show: false
+                      legend:
+                        show: false
+                      tooltip:
+                        enabled: true
+                    series:
+                      - entity: sensor.guest_room_temperature_sensor_temperature
+                        yaxis_id: temp
+                        name: Temperature
+                        type: area
+                        color: '#ff8a65'
+                        opacity: 0.15
+                      - entity: sensor.guest_room_temperature_sensor_humidity
+                        yaxis_id: humidity
+                        name: Humidity
+                        type: area
+                        color: '#4fc3f7'
+                        opacity: 0.15
+              - type: vertical-stack
+                cards:
+                  - type: heading
+                    icon: mdi:lamps
+                    heading: Lights
+                    heading_style: subtitle
+                    badges:
+                      - type: entity
+                        show_state: true
+                        show_icon: true
+                        entity: sensor.office_presence_detector_illuminance
+                  - type: custom:mushroom-light-card
+                    entity: light.guest_room_lights
+                    show_brightness_control: true
+                    show_color_control: true
+                    show_color_temp_control: true
+                    use_light_color: true
+                    collapsible_controls: false
+                    layout: horizontal
+                    fill_container: false
+                  - type: custom:rgb-light-card
+                    entity: light.guest_room_lights
+                    size: 30
+                    justify: center
+                    colors:
+                      - rgb_color:
+                          - 255
+                          - 255
+                          - 255
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 193
+                          - 141
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 136
+                          - 13
+                        transition: 1
+                      - rgb_color:
+                          - 205
+                          - 0
+                          - 255
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 0
+                          - 0
+                        transition: 1
+                      - rgb_color:
+                          - 0
+                          - 255
+                          - 0
+                        transition: 1
+                      - rgb_color:
+                          - 0
+                          - 0
+                          - 255
+                        transition: 1
+                  - square: false
+                    type: grid
+                    cards:
+                      - type: custom:mushroom-light-card
+                        entity: light.wiz_color_e27_002
+                        layout: vertical
+                        show_brightness_control: true
+                        use_light_color: true
+                        show_color_temp_control: false
+                        collapsible_controls: true
+                        show_color_control: false
+                    columns: 2
+              - type: heading
+                icon: mdi:surround-sound
+                heading_style: subtitle
+                heading: Media
+              - type: custom:mini-media-player
+                entity: media_player.office_speaker
+                group: true
+                volume_stateless: false
+                toggle_power: true
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#bathroom'
+                bg_blur: 0
+                hide_backdrop: false
+                margin_top_mobile: 10px
+                show_header: true
+                name: Bathroom
+                icon: mdi:toilet
+                bg_opacity: '100'
+                show_last_changed: true
+                show_state: true
+                force_icon: false
+                sub_button:
+                  main:
+                    - entity: binary_sensor.office_presence_detector_presence
+                      show_state: true
+                      show_last_changed: true
+                  bottom: []
+                button_type: name
+              - type: horizontal-stack
+                cards:
+                  - type: custom:apexcharts-card
+                    graph_span: 24h
+                    header:
+                      show: true
+                      title: ''
+                      show_states: true
+                      colorize_states: true
+                    yaxis:
+                      - id: temp
+                        show: false
+                      - id: humidity
+                        show: false
+                    apex_config:
+                      xaxis:
+                        labels:
+                          show: false
+                        axisBorder:
+                          show: false
+                        axisTicks:
+                          show: false
+                        tooltip:
+                          enabled: false
+                      chart:
+                        height: 100
+                      stroke:
+                        width: 3
+                        curve: smooth
+                      grid:
+                        show: false
+                      legend:
+                        show: false
+                      tooltip:
+                        enabled: true
+                    series:
+                      - entity: sensor.bathroom_temperature_sensor_temperature
+                        yaxis_id: temp
+                        name: Temperature
+                        type: area
+                        color: '#ff8a65'
+                        opacity: 0.15
+                      - entity: sensor.bathroom_temperature_sensor_humidity
+                        yaxis_id: humidity
+                        name: Humidity
+                        type: area
+                        color: '#4fc3f7'
+                        opacity: 0.15
+              - type: vertical-stack
+                cards:
+                  - type: heading
+                    icon: mdi:lamps
+                    heading: Lights
+                    heading_style: subtitle
+                    badges:
+                      - type: entity
+                        show_state: true
+                        show_icon: true
+                        entity: sensor.office_presence_detector_illuminance
+                  - type: custom:mushroom-light-card
+                    entity: light.guest_room_lights
+                    show_brightness_control: true
+                    show_color_control: true
+                    show_color_temp_control: true
+                    use_light_color: true
+                    collapsible_controls: false
+                    layout: horizontal
+                    fill_container: false
+                  - type: custom:rgb-light-card
+                    entity: light.guest_room_lights
+                    size: 30
+                    justify: center
+                    colors:
+                      - rgb_color:
+                          - 255
+                          - 255
+                          - 255
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 193
+                          - 141
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 136
+                          - 13
+                        transition: 1
+                      - rgb_color:
+                          - 205
+                          - 0
+                          - 255
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 0
+                          - 0
+                        transition: 1
+                      - rgb_color:
+                          - 0
+                          - 255
+                          - 0
+                        transition: 1
+                      - rgb_color:
+                          - 0
+                          - 0
+                          - 255
+                        transition: 1
+                  - type: entities
+                    show_header_toggle: false
+                    entities:
+                      - entity: light.wiz_color_e27_002
+                        secondary_info: brightness
+                    state_color: true
+              - type: heading
+                icon: mdi:surround-sound
+                heading_style: subtitle
+                heading: Media
+              - type: custom:mini-media-player
+                entity: media_player.office_speaker
+                group: true
+                volume_stateless: false
+                toggle_power: true
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#entree'
+                bg_blur: 0
+                hide_backdrop: false
+                margin_top_mobile: 10px
+                show_header: true
+                name: Entree
+                icon: mdi:home
+                bg_opacity: '100'
+                show_last_changed: true
+                show_state: true
+                force_icon: false
+                sub_button:
+                  main:
+                    - entity: binary_sensor.office_presence_detector_presence
+                      show_state: true
+                      show_last_changed: true
+                  bottom: []
+                button_type: name
+              - type: horizontal-stack
+                cards:
+                  - type: custom:apexcharts-card
+                    graph_span: 24h
+                    header:
+                      show: true
+                      title: ''
+                      show_states: true
+                      colorize_states: true
+                    yaxis:
+                      - id: temp
+                        show: false
+                      - id: humidity
+                        show: false
+                    apex_config:
+                      xaxis:
+                        labels:
+                          show: false
+                        axisBorder:
+                          show: false
+                        axisTicks:
+                          show: false
+                        tooltip:
+                          enabled: false
+                      chart:
+                        height: 100
+                      stroke:
+                        width: 3
+                        curve: smooth
+                      grid:
+                        show: false
+                      legend:
+                        show: false
+                      tooltip:
+                        enabled: true
+                    series:
+                      - entity: sensor.server_cabinet_temperature_sensor_temperature
+                        yaxis_id: temp
+                        name: Temperature
+                        type: area
+                        color: '#ff8a65'
+                        opacity: 0.15
+                      - entity: sensor.server_cabinet_temperature_sensor_humidity
+                        yaxis_id: humidity
+                        name: Humidity
+                        type: area
+                        color: '#4fc3f7'
+                        opacity: 0.15
+              - type: vertical-stack
+                cards:
+                  - type: heading
+                    icon: mdi:lamps
+                    heading: Lights
+                    heading_style: subtitle
+                    badges:
+                      - type: entity
+                        show_state: true
+                        show_icon: true
+                        entity: sensor.office_presence_detector_illuminance
+                  - type: custom:mushroom-light-card
+                    show_brightness_control: true
+                    show_color_control: true
+                    show_color_temp_control: true
+                    use_light_color: true
+                    collapsible_controls: false
+                    layout: horizontal
+                    fill_container: false
+                    entity: light.entree_lights
+                  - type: custom:rgb-light-card
+                    entity: light.entree_lights
+                    size: 30
+                    justify: center
+                    colors:
+                      - rgb_color:
+                          - 255
+                          - 255
+                          - 255
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 193
+                          - 141
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 136
+                          - 13
+                        transition: 1
+                      - rgb_color:
+                          - 205
+                          - 0
+                          - 255
+                        transition: 1
+                      - rgb_color:
+                          - 255
+                          - 0
+                          - 0
+                        transition: 1
+                      - rgb_color:
+                          - 0
+                          - 255
+                          - 0
+                        transition: 1
+                      - rgb_color:
+                          - 0
+                          - 0
+                          - 255
+                        transition: 1
+                  - square: false
+                    type: grid
+                    cards:
+                      - type: custom:mushroom-light-card
+                        entity: light.wiz_color_e27_001
+                        layout: vertical
+                        show_brightness_control: true
+                        use_light_color: true
+                        show_color_temp_control: false
+                        collapsible_controls: true
+                        show_color_control: false
+                    columns: 2
+              - type: heading
+                icon: mdi:surround-sound
+                heading_style: subtitle
+                heading: Media
+              - type: custom:frigate-card
+                cameras:
+                  - camera_entity: camera.front_garden_camera_2
+                live:
+                  controls:
+                    builtin: false
+                    thumbnails:
+                      mode: none
+                    next_previous:
+                      style: none
+                    timeline:
+                      mode: none
+                    ptz:
+                      mode: 'off'
+                  lazy_unload:
+                    - hidden
+                    - unselected
+                menu:
+                  style: none
+        column_span: 4
+      - type: grid
+        cards:
+          - type: heading
+            heading: Appliances
+            heading_style: title
+            icon: mdi:washing-machine
+            visibility:
+              - condition: screen
+                media_query: '(min-width: 1024px) and (max-width: 1279px)'
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#geoffrey'
+                bg_blur: 0
+                margin_top_mobile: 10px
+                bg_opacity: '100'
+                name: Geoffrey
+                icon: mdi:robot-vacuum
+                button_type: state
+                sub_button:
+                  main: []
+                  bottom: []
+                hide_backdrop: false
+                card_layout: normal
+                show_header: true
+                show_name: true
+                show_icon: true
+                entity: vacuum.geoffrey
+                force_icon: false
+                show_last_changed: false
+                show_last_updated: false
+                show_attribute: false
+                show_state: false
+              - type: custom:gap-card
+                height: 25px
+              - type: custom:xiaomi-vacuum-map-card
+                map_source:
+                  camera: image.geoffrey_home_custom
+                  crop:
+                    top: 100
+                    bottom: 100
+                calibration_source:
+                  camera: true
+                entity: vacuum.geoffrey
+                vacuum_platform: Roborock
+                map_locked: false
+              - type: custom:layout-card
+                layout_type: custom:grid-layout
+                cards:
+                  - type: custom:button-card
+                    entity: input_button.vacuum_entree_button
+                    icon: mdi:door-open
+                    tap_action:
+                      action: call-service
+                      service: input_button.press
+                      service_data:
+                        entity_id: input_button.vacuum_entree_button
+                    show_name: false
+                    styles:
+                      card:
+                        - width: 45px
+                        - height: 45px
+                        - border-radius: 99px
+                      icon:
+                        - width: 28px
+                  - type: custom:button-card
+                    entity: input_button.vacuum_kitchen_button
+                    icon: mdi:countertop
+                    tap_action:
+                      action: call-service
+                      service: input_button.press
+                      service_data:
+                        entity_id: input_button.vacuum_kitchen_button
+                    show_name: false
+                    styles:
+                      card:
+                        - width: 45px
+                        - height: 45px
+                        - border-radius: 99px
+                      icon:
+                        - width: 28px
+                  - type: custom:button-card
+                    entity: input_button.vacuum_diner_button
+                    icon: mdi:table-furniture
+                    tap_action:
+                      action: call-service
+                      service: input_button.press
+                      service_data:
+                        entity_id: input_button.vacuum_diner_button
+                    show_name: false
+                    styles:
+                      card:
+                        - width: 45px
+                        - height: 45px
+                        - border-radius: 99px
+                      icon:
+                        - width: 28px
+                  - type: custom:button-card
+                    entity: input_button.vacuum_living_room_button
+                    icon: mdi:sofa
+                    tap_action:
+                      action: call-service
+                      service: input_button.press
+                      service_data:
+                        entity_id: input_button.vacuum_living_room_button
+                    show_name: false
+                    styles:
+                      card:
+                        - width: 45px
+                        - height: 45px
+                        - border-radius: 99px
+                      icon:
+                        - width: 28px
+                  - type: custom:button-card
+                    entity: input_button.vacuum_office_button
+                    icon: mdi:chair-rolling
+                    tap_action:
+                      action: call-service
+                      service: input_button.press
+                      service_data:
+                        entity_id: input_button.vacuum_office_button
+                    show_name: false
+                    styles:
+                      card:
+                        - width: 45px
+                        - height: 45px
+                        - border-radius: 99px
+                      icon:
+                        - width: 28px
+                  - type: custom:button-card
+                    entity: input_button.vacuum_hallway_button
+                    icon: mdi:dance-ballroom
+                    tap_action:
+                      action: call-service
+                      service: input_button.press
+                      service_data:
+                        entity_id: input_button.vacuum_hallway_button
+                    show_name: false
+                    styles:
+                      card:
+                        - width: 45px
+                        - height: 45px
+                        - border-radius: 99px
+                      icon:
+                        - width: 28px
+                  - type: custom:button-card
+                    entity: input_button.vacuum_bathroom_button
+                    icon: mdi:toilet
+                    tap_action:
+                      action: call-service
+                      service: input_button.press
+                      service_data:
+                        entity_id: input_button.vacuum_bathroom_button
+                    show_name: false
+                    styles:
+                      card:
+                        - width: 45px
+                        - height: 45px
+                        - border-radius: 99px
+                      icon:
+                        - width: 28px
+                  - type: custom:button-card
+                    entity: input_button.vacuum_bedroom_button
+                    icon: mdi:bed-king
+                    tap_action:
+                      action: call-service
+                      service: input_button.press
+                      service_data:
+                        entity_id: input_button.vacuum_bedroom_button
+                    show_name: false
+                    styles:
+                      card:
+                        - width: 45px
+                        - height: 45px
+                        - border-radius: 99px
+                      icon:
+                        - width: 28px
+                  - type: custom:button-card
+                    entity: input_button.vacuum_guest_room_button
+                    icon: mdi:bed-outline
+                    tap_action:
+                      action: call-service
+                      service: input_button.press
+                      service_data:
+                        entity_id: input_button.vacuum_guest_room_button
+                    show_name: false
+                    styles:
+                      card:
+                        - width: 45px
+                        - height: 45px
+                        - border-radius: 99px
+                      icon:
+                        - width: 28px
+                layout:
+                  grid-template-columns: repeat(5, max-content)
+                  grid-template-rows: repeat(2, auto)
+                  gap: 10px
+                  place-items: center
+                  place-content: center
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#tapatio'
+                margin_top_mobile: 10px
+                name: Tapatio
+                icon: mdi:robot-mower-outline
+                bg_opacity: '100'
+                button_type: name
+                sub_button:
+                  main: []
+                  bottom: []
+              - type: horizontal-stack
+                cards:
+                  - type: custom:mushroom-entity-card
+                    entity: lawn_mower.tapatio
+                  - type: custom:mushroom-entity-card
+                    entity: sensor.tapatio_battery
+                    name: Battery
+              - type: tile
+                features_position: bottom
+                vertical: false
+                entity: automation.infinite_lawnmoving
+              - square: true
+                type: grid
+                cards:
+                  - show_name: false
+                    show_icon: true
+                    type: button
+                    entity: button.tapatio_home
+                    icon: mdi:home-export-outline
+                    icon_height: 50px
+                    tap_action:
+                      action: toggle
+                  - show_name: false
+                    show_icon: true
+                    type: button
+                    entity: button.tapatio_start_robot
+                    icon: mdi:play
+                    name: Start
+                    show_state: false
+                    tap_action:
+                      action: toggle
+                  - show_name: false
+                    show_icon: true
+                    type: button
+                    entity: button.tapatio_pause_robot
+                    icon: mdi:pause
+                    tap_action:
+                      action: toggle
+                  - show_name: false
+                    show_icon: true
+                    type: button
+                    entity: button.tapatio_cut_border
+                    icon: mdi:border-bottom-variant
+                    show_state: false
+                    name: Edge cutting
+                    icon_height: 50px
+                    tap_action:
+                      action: toggle
+                columns: 4
+              - type: vertical-stack
+                cards:
+                  - type: conditional
+                    conditions:
+                      - condition: state
+                        entity: switch.tapatio_schedule
+                        state: 'on'
+                    card:
+                      type: entities
+                      entities:
+                        - entity: text.tapatio_schedule_monday
+                          name: Monday
+                        - entity: text.tapatio_schedule_tuesday
+                          name: Tuesday
+                        - entity: text.tapatio_schedule_wednesday
+                          name: Wednesday
+                        - entity: text.tapatio_schedule_thursday
+                          name: Thursday
+                        - entity: text.tapatio_schedule_friday
+                          name: Friday
+                        - entity: text.tapatio_schedule_saturday
+                          name: Saturday
+                        - entity: text.tapatio_schedule_sunday
+                          name: Sunday
+                      state_color: false
+                  - type: custom:mushroom-entity-card
+                    entity: switch.tapatio_schedule
+                    fill_container: false
+                    layout: horizontal
+                    tap_action:
+                      action: toggle
+              - type: custom:gap-card
+                height: 25px
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#bertha'
+                bg_blur: 0
+                hide_backdrop: false
+                margin_top_mobile: 10px
+                name: Bertha
+                icon: mdi:dishwasher
+                bg_opacity: '100'
+                show_attribute: false
+                show_last_changed: false
+                show_state: true
+                sub_button:
+                  main:
+                    - entity: sensor.bertha_operation_state
+                      show_state: true
+                      show_attribute: false
+                      attribute: options
+                      show_last_changed: true
+                  bottom: []
+                button_type: name
+              - type: tile
+                entity: switch.bertha_power
+                features_position: inline
+                vertical: false
+                visibility:
+                  - condition: state
+                    entity: sensor.bertha_operation_state
+                    state_not: run
+                features:
+                  - type: toggle
+              - type: tile
+                entity: sensor.bertha_operation_state
+                features_position: bottom
+                vertical: false
+              - type: gauge
+                entity: sensor.dishwasher_program_progress
+                min: 0
+                max: 100
+                needle: true
+                name: Progress
+              - type: entities
+                entities:
+                  - entity: sensor.dishwasher_program_finish_time
+                  - entity: sensor.bertha_door
+                  - entity: switch.dishwasher_extra_dry
+                  - entity: select.dishwasher_active_program
+                  - entity: number.dishwasher_start_in_relative
+                  - entity: switch.dishwasher_extra_dry
+                  - entity: binary_sensor.bertha_remote_start
+        column_span: 4
+      - type: grid
+        cards:
+          - type: heading
+            heading: Lists
+            heading_style: title
+            icon: mdi:format-list-bulleted
+            visibility:
+              - condition: screen
+                media_query: '(min-width: 1024px) and (max-width: 1279px)'
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#shopping'
+                bg_blur: 0
+                margin_top_mobile: 10px
+                name: Shopping List
+                icon: mdi:cart-outline
+                bg_opacity: '100'
+                button_type: name
+                sub_button:
+                  main: []
+                  bottom: []
+              - type: todo-list
+                entity: todo.google_keep_shopping
+          - type: vertical-stack
+            cards:
+              - type: custom:bubble-card
+                card_type: pop-up
+                hash: '#electricity'
+                bg_blur: 0
+                hide_backdrop: false
+                margin_top_mobile: 10px
+                name: Electricity
+                icon: mdi:lightning-bolt-circle
+                bg_opacity: '100'
+                show_attribute: false
+                show_last_changed: false
+                show_state: false
+                button_type: name
+                scrolling_effect: true
+                show_header: true
+                show_name: true
+                sub_button:
+                  main: []
+                  bottom: []
+              - type: custom:apexcharts-card
+                apex_config:
+                  chart:
+                    height: 250px
+                all_series_config:
+                  unit: ' kr.'
+                experimental:
+                  color_threshold: true
+                header:
+                  show: true
+                now:
+                  show: true
+                  label: Now
+                graph_span: 2d
+                span:
+                  start: day
+                  offset: '-0h'
+                yaxis:
+                  - min: 0
+                    apex_config:
+                      tickAmount: 2
+                series:
+                  - entity: sensor.energi_data_service
+                    header_actions:
+                      tap_action:
+                        action: navigate
+                        navigation_path: /dashboard-controls/energy
+                    type: column
+                    name: Total price
+                    data_generator: >
+                      var today = entity.attributes.raw_today.map((start, index)
+                      => {
+                        return [new Date(start["hour"]).getTime(), entity.attributes.raw_today[index]["price"]];
+                      });
+
+                      if (entity.attributes.tomorrow_valid) {
+                        var tomorrow = entity.attributes.raw_tomorrow.map((start, index) => {
+                          return [new Date(start["hour"]).getTime(), entity.attributes.raw_tomorrow[index]["price"]];
+                        });
+
+                        var data = today.concat(tomorrow);
+                      } else {
+                        var data = today
+                      }
+
+                      return data;
+                    float_precision: 2
+                    color_threshold:
+                      - value: 0
+                        color: cyan
+                      - value: 0.5
+                        color: green
+                      - value: 1
+                        color: orange
+                      - value: 1.5
+                        color: purple
+                      - value: 2.2
+                        color: darkred
+                    show:
+                      legend_value: false
+                      extremas: time
+              - type: custom:mushroom-template-card
+                primary: Electricity price
+                secondary: >
+                  ⚡ Current: {{ states('sensor.electricity_price_current') |
+                  float(0) | round(3) }} kr
+
+                  ⏬ Lowest upcoming: {% set today =
+                  state_attr('sensor.energi_data_service', 'today') or [] %}{%
+                  set tomorrow = state_attr('sensor.energi_data_service',
+                  'tomorrow') or [] %}{{ (today + tomorrow) | map('float')| min
+                  | round(3) }} kr
+
+                  🕒 Next cheapest hour: {{
+                  states('sensor.electricity_next_cheapest_hour') }}
+                multiline_secondary: true
+                icon: mdi:lightning-bolt
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-controls/energy
+                features_position: bottom
+                color: >
+                  {% set p = states('sensor.electricity_price_current') |
+                  float(0) %} {% if p <= 0.5 %} cyan {% elif p <= 1.0 %} green
+                  {% elif p <= 1.5 %} orange {% elif p <= 2.2 %} purple {% else
+                  %} red {% endif %}
+                card_mod:
+                  style: |
+                    ha-card {
+                      border-radius: 30px;
+                      padding: 16px;
+                      background: linear-gradient(
+                        145deg,
+                        rgba(30,30,30,0.95),
+                        rgba(0,0,0,0.85)
+                      );
+                      box-shadow:
+                        {% set p = states('sensor.electricity_price_current') | float(0) %}
+                        {% if p <= 0.5 %}
+                          0 0 18px rgba(0, 255, 255, 1),
+                          0 0 30px rgba(0, 255, 255, 1);
+                        {% elif p <= 1.0 %}
+                          0 0 30px rgba(0, 200, 0, 1);
+                        {% elif p <= 1.5 %}
+                          0 0 30px rgba(255, 165, 0, 1);
+                        {% elif p <= 2.2 %}
+                          0 0 30px rgba(160, 32, 240, 1);
+                        {% else %}
+                          0 0 14px rgba(180, 0, 0, 1);
+                        {% endif %}
+                    }
+                    ha-card * {
+                      font-size: 20px !important;
+                    }
+              - type: markdown
+                content: |2
+                    ## Luna Last Session
+                    {{ states('sensor.luna_charging_history') }}
+        column_span: 4
+    background:
+      opacity: 33
+      color: rgba(16, 30, 36, 1 )
+    theme: ios-dark-mode-blue-red
+    footer:
+      card:
+        type: custom:navbar-card
+        routes:
+          - icon: mdi:home
+            label: Home
+            url: /dashboard-home/0
+            double_tap_action:
+              action: more-info
+              entity: sensor.glances_addons_disk_free
+          - icon: mdi:lightbulb-group
+            label: Lights
+            url: /dashboard-home/lights
+            badge:
+              show: false
+          - icon: mdi:car
+            label: Cars
+            url: /dashboard-home/cars
+          - icon: mdi:security
+            label: Security
+            popup:
+              - icon: mdi:cctv
+                label: Cameras
+                url: /dashboard-home/security
+              - icon: mdi:lock
+                label: Doors, Windows, Locks
+                url: /dashboard-home/security
+              - icon: mdi:shield-home
+                label: Sensors
+                url: /dashboard-home/security
+            tap_action:
+              action: open-popup
+          - icon: mdi:lightning-bolt-circle
+            label: Electricity
+            tap_action:
+              action: navigate
+              navigation_path: '#electricity'
+          - icon: mdi:cart
+            label: Shoppinglist
+            tap_action:
+              action: navigate
+              navigation_path: dashboard-home/0#shopping
+          - icon: mdi:washing-machine
+            label: Appliances
+            url: /dashboard-home
+            popup:
+              - icon: mdi:robot-vacuum
+                label: Geoffrey
+                tap_action:
+                  action: navigate
+                  navigation_path: '#geoffrey'
+                badge:
+                  show: false
+              - icon: mdi:robot-mower
+                label: Tapatio
+                tap_action:
+                  action: navigate
+                  navigation_path: '#tapatio'
+                badge:
+                  show: false
+              - icon: mdi:washing-machine
+                tap_action:
+                  action: navigate
+                  navigation_path: '#bertha'
+                label: Bertha
+            tap_action:
+              action: open-popup
+          - icon: mdi:server-security
+            label: Management
+            url: ''
+            popup:
+              - icon: mdi:server-security
+                label: Monitoring
+                url: /dashboard-management/monitoring
+              - icon: mdi:progress-download
+                label: Torrent
+                url: /db21ed7f_qbittorrent
+            badge:
+              show: false
+            tap_action:
+              action: open-popup
+        haptic:
+          url: true
+          tap_action: false
+          hold_action: true
+          double_tap_action: false
+        mobile:
+          mode: floating
+          show_labels: popup_only
+          show_popup_label_backgrounds: true
+        desktop:
+          show_labels: popup_only
+          show_popup_label_backgrounds: false
+        styles: >
+          .navbar-card.mobile.floating { --navbar-border-radius: 999px;
+          backdrop-filter: blur(33px); !important; border: none; }
+
+
+          /* BUTTON BASE */
+
+          .navbar-card.mobile.floating.button {
+            padding: 6px 10px;
+            margin: 0 2px;
+            background: transparent !important;
+          }
+
+
+          /* ICON */
+
+          .navbar-card.mobile.floating.button .icon {
+            background: transparent !important;
+            padding: 4px;
+          }
+
+
+          /* LABEL */
+
+          .navbar-card.mobile.floating.button.label {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 2px;
+          }
+
+
+          /* ACTIVE BUTTON */
+
+          .navbar-card.mobile.floating.button.active.icon,
+
+          .navbar-card.mobile.floating.button.active.label {
+            color: #ffc107 !important;
+            opacity: 1;
+          }
+
+
+          /* ICON DENSITY */
+
+          .navbar-card.mobile.floating.button ha-icon {
+            --mdc-icon-size: 22px;
+          }
+  - type: sections
+    max_columns: 1
+    title: Lights
+    path: lights
+    icon: ''
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:lightbulb-group-outline
+            heading: Light Groups
+            heading_style: title
+          - type: custom:mushroom-light-card
+            entity: light.all_lights
+            layout: vertical
+            use_light_color: false
+            show_brightness_control: true
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            secondary_info: last-changed
+            fill_container: false
+            grid_options:
+              columns: full
+              rows: 1
+            card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.all_lights', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.all_lights', 'rgb_color')[0] }}, {{ state_attr('light.all_lights', 'rgb_color')[1] }}, {{ state_attr('light.all_lights', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 64px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 35px !important;
+                }
+          - type: custom:mushroom-light-card
+            entity: light.entree_lights
+            layout: horizontal
+            use_light_color: false
+            show_brightness_control: true
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            secondary_info: last-changed
+            fill_container: false
+            icon: mdi:coat-rack
+            card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.entree_lights', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.entree_lights', 'rgb_color')[0] }}, {{ state_attr('light.entree_lights', 'rgb_color')[1] }}, {{ state_attr('light.entree_lights', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 50px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 40px !important;
+                }
+          - type: custom:mushroom-light-card
+            entity: light.kitchen_lights
+            layout: horizontal
+            use_light_color: false
+            show_brightness_control: true
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            secondary_info: last-changed
+            fill_container: false
+            icon: mdi:fridge-outline
+            card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.kitchen_lights', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.kitchen_lights', 'rgb_color')[0] }}, {{ state_attr('light.kitchen_lights', 'rgb_color')[1] }}, {{ state_attr('light.kitchen_lights', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 50px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 40px !important;
+                }
+          - type: custom:mushroom-light-card
+            entity: light.living_room_lights
+            layout: horizontal
+            use_light_color: false
+            show_brightness_control: true
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            secondary_info: last-changed
+            fill_container: false
+            icon: mdi:sofa-outline
+            card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.living_room_lights', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.living_room_lights', 'rgb_color')[0] }}, {{ state_attr('light.living_room_lights', 'rgb_color')[1] }}, {{ state_attr('light.living_room_lights', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 50px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 40px !important;
+                }
+          - type: custom:mushroom-light-card
+            entity: light.office_lights
+            layout: horizontal
+            use_light_color: false
+            show_brightness_control: true
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            secondary_info: last-changed
+            fill_container: false
+            icon: mdi:desk
+            card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.office_lights', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.office_lights', 'rgb_color')[0] }}, {{ state_attr('light.office_lights', 'rgb_color')[1] }}, {{ state_attr('light.office_lights', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 50px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 40px !important;
+                }
+          - type: custom:mushroom-light-card
+            entity: light.bedroom_lights
+            layout: horizontal
+            use_light_color: false
+            show_brightness_control: true
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            secondary_info: last-changed
+            fill_container: false
+            icon: mdi:bed-king-outline
+            card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.bedroom_lights', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.bedroom_lights', 'rgb_color')[0] }}, {{ state_attr('light.bedroom_lights', 'rgb_color')[1] }}, {{ state_attr('light.bedroom_lights', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 50px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 40px !important;
+                }
+          - type: custom:mushroom-light-card
+            entity: light.guest_room_lights
+            layout: horizontal
+            use_light_color: false
+            show_brightness_control: true
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            secondary_info: last-changed
+            fill_container: false
+            icon: mdi:account-group
+            card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.guest_room_lights', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.guest_room_lights', 'rgb_color')[0] }}, {{ state_attr('light.guest_room_lights', 'rgb_color')[1] }}, {{ state_attr('light.guest_room_lights', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 50px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 40px !important;
+                }
+        column_span: 3
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:coat-rack
+            heading: Entree
+            heading_style: title
+          - card_mod:
+              style: |
+                :host {
+                  width: 150px !important;
+                }
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.wiz_color_e27_001', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.wiz_color_e27_001', 'rgb_color')[0] }}, {{ state_attr('light.wiz_color_e27_001', 'rgb_color')[1] }}, {{ state_attr('light.wiz_color_e27_001', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 64px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 10px !important;
+                }
+            type: custom:mushroom-light-card
+            entity: light.wiz_color_e27_001
+            layout: vertical
+            use_light_color: false
+            show_brightness_control: false
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            fill_container: false
+            grid_options:
+              columns: 3
+              rows: null
+          - type: heading
+            icon: mdi:sofa-outline
+            heading: Living Room
+            heading_style: title
+          - card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.philips_hue_color_bulb_02', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.philips_hue_color_bulb_02', 'rgb_color')[0] }}, {{ state_attr('light.philips_hue_color_bulb_02', 'rgb_color')[1] }}, {{ state_attr('light.philips_hue_color_bulb_02', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 64px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 10px !important;
+                }
+            type: custom:mushroom-light-card
+            entity: light.philips_hue_color_bulb_02
+            layout: vertical
+            use_light_color: false
+            show_brightness_control: false
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            fill_container: false
+            grid_options:
+              columns: 3
+              rows: null
+          - card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.philips_hue_color_bulb_01', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.philips_hue_color_bulb_01', 'rgb_color')[0] }}, {{ state_attr('light.philips_hue_color_bulb_01', 'rgb_color')[1] }}, {{ state_attr('light.philips_hue_color_bulb_01', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 64px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 10px !important;
+                }
+            type: custom:mushroom-light-card
+            entity: light.philips_hue_color_bulb_01
+            layout: vertical
+            use_light_color: false
+            show_brightness_control: false
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            fill_container: false
+            grid_options:
+              columns: 3
+              rows: null
+          - card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.philips_hue_color_bulb_04', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.philips_hue_color_bulb_04', 'rgb_color')[0] }}, {{ state_attr('light.philips_hue_color_bulb_04', 'rgb_color')[1] }}, {{ state_attr('light.philips_hue_color_bulb_04', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 64px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 10px !important;
+                }
+            type: custom:mushroom-light-card
+            entity: light.philips_hue_color_bulb_04
+            layout: vertical
+            use_light_color: false
+            show_brightness_control: false
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            fill_container: false
+            grid_options:
+              columns: 3
+              rows: null
+          - card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.philips_hue_color_bulb_03', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.philips_hue_color_bulb_03', 'rgb_color')[0] }}, {{ state_attr('light.philips_hue_color_bulb_03', 'rgb_color')[1] }}, {{ state_attr('light.philips_hue_color_bulb_03', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 64px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 10px !important;
+                }
+            type: custom:mushroom-light-card
+            entity: light.philips_hue_color_bulb_03
+            layout: vertical
+            use_light_color: false
+            show_brightness_control: false
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            fill_container: false
+            grid_options:
+              columns: 3
+              rows: null
+          - type: heading
+            icon: mdi:bed-king-outline
+            heading: Bedroom
+            heading_style: title
+          - card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.philips_hue_indoor_strip_01', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.philips_hue_indoor_strip_01', 'rgb_color')[0] }}, {{ state_attr('light.philips_hue_indoor_strip_01', 'rgb_color')[1] }}, {{ state_attr('light.philips_hue_indoor_strip_01', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 64px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 10px !important;
+                }
+            type: custom:mushroom-light-card
+            entity: light.philips_hue_indoor_strip_01
+            layout: vertical
+            use_light_color: false
+            show_brightness_control: false
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            fill_container: false
+            grid_options:
+              columns: 3
+              rows: null
+          - card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.philips_hue_indoor_strip_02', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.philips_hue_indoor_strip_02', 'rgb_color')[0] }}, {{ state_attr('light.philips_hue_indoor_strip_02', 'rgb_color')[1] }}, {{ state_attr('light.philips_hue_indoor_strip_02', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 64px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 10px !important;
+                }
+            type: custom:mushroom-light-card
+            entity: light.philips_hue_indoor_strip_02
+            layout: vertical
+            use_light_color: false
+            show_brightness_control: false
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            fill_container: false
+            grid_options:
+              columns: 3
+              rows: null
+          - type: heading
+            icon: mdi:chair-rolling
+            heading: Office
+            heading_style: title
+          - card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.corner_lamp', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.corner_lamp', 'rgb_color')[0] }}, {{ state_attr('light.corner_lamp', 'rgb_color')[1] }}, {{ state_attr('light.corner_lamp', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 64px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 10px !important;
+                }
+            type: custom:mushroom-light-card
+            entity: light.corner_lamp
+            layout: vertical
+            use_light_color: false
+            show_brightness_control: false
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            fill_container: false
+            grid_options:
+              columns: 3
+              rows: null
+          - type: custom:mushroom-light-card
+            entity: light.melk_indoor_strip_01
+            layout: vertical
+            use_light_color: false
+            show_brightness_control: false
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            fill_container: false
+            grid_options:
+              columns: 3
+              rows: null
+            icon: mdi:lightbulb-fluorescent-tube-outline
+            card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.melk_indoor_strip_01', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.melk_indoor_strip_01', 'rgb_color')[0] }}, {{ state_attr('light.melk_indoor_strip_01', 'rgb_color')[1] }}, {{ state_attr('light.melk_indoor_strip_01', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 64px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 10px !important;
+                }
+          - type: heading
+            icon: mdi:account-group
+            heading: Guest Room
+            heading_style: title
+          - card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background: {% if is_state('light.wiz_color_e27_002', 'on') %}
+                    radial-gradient(circle at top left, rgba({{ state_attr('light.wiz_color_e27_002', 'rgb_color')[0] }}, {{ state_attr('light.wiz_color_e27_002', 'rgb_color')[1] }}, {{ state_attr('light.wiz_color_e27_002', 'rgb_color')[2] }}, 0.2), #000000)
+                  {% else %}
+                    radial-gradient(circle at top left, #303030, rgba(0,0,0,0.8))
+                  {% endif %};
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+                mushroom-shape-icon {
+                  --icon-size: 64px !important;
+                }
+                mushroom-light-brightness-control {
+                  --control-height: 10px !important;
+                }
+            type: custom:mushroom-light-card
+            entity: light.wiz_color_e27_002
+            layout: vertical
+            use_light_color: false
+            show_brightness_control: false
+            show_color_temp_control: false
+            show_color_control: false
+            collapsible_controls: false
+            fill_container: false
+            grid_options:
+              columns: 3
+              rows: null
+        column_span: 1
+      - type: grid
+        cards:
+          - type: heading
+            heading: Dynamic Scenes
+            heading_style: title
+            icon: mdi:unicorn-variant
+          - card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background:  radial-gradient(circle at top left, #303030, #000000);
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+            features:
+              - type: toggle
+            type: tile
+            entity: input_boolean.living_room_fantasy_lights
+            features_position: bottom
+            vertical: true
+            show_entity_picture: false
+          - type: tile
+            entity: input_boolean.living_room_christmas_lights
+            show_entity_picture: false
+            vertical: true
+            features:
+              - type: toggle
+            features_position: bottom
+            card_mod:
+              style: |
+                ha-card {
+                  border-radius: 16px;
+                  background:  radial-gradient(circle at top left, #303030, #000000);
+                  backdrop-filter: blur(8px);
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+                }
+        column_span: 1
+    footer:
+      card:
+        type: custom:navbar-card
+        routes:
+          - icon: mdi:home
+            label: Home
+            url: /dashboard-home/0
+            double_tap_action:
+              action: more-info
+              entity: sensor.glances_addons_disk_free
+          - icon: mdi:lightbulb-group
+            label: Lights
+            url: /dashboard-home/lights
+            badge:
+              show: false
+          - icon: mdi:car
+            label: Cars
+            url: /dashboard-home/cars
+          - icon: mdi:security
+            label: Security
+            popup:
+              - icon: mdi:cctv
+                label: Cameras
+                url: /dashboard-home/security
+              - icon: mdi:lock
+                label: Doors, Windows, Locks
+                url: /dashboard-home/security
+              - icon: mdi:shield-home
+                label: Sensors
+                url: /dashboard-home/security
+            tap_action:
+              action: open-popup
+          - icon: mdi:lightning-bolt-circle
+            label: Electricity
+            tap_action:
+              action: navigate
+              navigation_path: '#electricity'
+          - icon: mdi:cart
+            label: Shoppinglist
+            tap_action:
+              action: navigate
+              navigation_path: dashboard-home/0#shopping
+          - icon: mdi:washing-machine
+            label: Appliances
+            url: /dashboard-home
+            popup:
+              - icon: mdi:robot-vacuum
+                label: Geoffrey
+                tap_action:
+                  action: navigate
+                  navigation_path: '#geoffrey'
+                badge:
+                  show: false
+              - icon: mdi:robot-mower
+                label: Tapatio
+                tap_action:
+                  action: navigate
+                  navigation_path: '#tapatio'
+                badge:
+                  show: false
+              - icon: mdi:washing-machine
+                tap_action:
+                  action: navigate
+                  navigation_path: '#bertha'
+                label: Bertha
+            tap_action:
+              action: open-popup
+          - icon: mdi:server-security
+            label: Management
+            url: ''
+            popup:
+              - icon: mdi:server-security
+                label: Monitoring
+                url: /dashboard-management/monitoring
+              - icon: mdi:progress-download
+                label: Torrent
+                url: /db21ed7f_qbittorrent
+            badge:
+              show: false
+            tap_action:
+              action: open-popup
+        haptic:
+          url: true
+          tap_action: false
+          hold_action: true
+          double_tap_action: false
+        mobile:
+          mode: floating
+          show_labels: popup_only
+          show_popup_label_backgrounds: true
+        desktop:
+          show_labels: popup_only
+          show_popup_label_backgrounds: false
+        styles: >
+          .navbar-card.mobile.floating { --navbar-border-radius: 999px;
+          backdrop-filter: blur(33px); !important; border: none; }
+
+
+          /* BUTTON BASE */
+
+          .navbar-card.mobile.floating.button {
+            padding: 6px 10px;
+            margin: 0 2px;
+            background: transparent !important;
+          }
+
+
+          /* ICON */
+
+          .navbar-card.mobile.floating.button .icon {
+            background: transparent !important;
+            padding: 4px;
+          }
+
+
+          /* LABEL */
+
+          .navbar-card.mobile.floating.button.label {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 2px;
+          }
+
+
+          /* ACTIVE BUTTON */
+
+          .navbar-card.mobile.floating.button.active.icon,
+
+          .navbar-card.mobile.floating.button.active.label {
+            color: #ffc107 !important;
+            opacity: 1;
+          }
+
+
+          /* ICON DENSITY */
+
+          .navbar-card.mobile.floating.button ha-icon {
+            --mdc-icon-size: 22px;
+          }
+    theme: ios-dark-mode-blue-red
+    cards: []
+    show_icon_and_title: true
+  - type: sections
+    max_columns: 2
+    title: Cars
+    path: cars
+    icon: ''
+    sections:
+      - type: grid
+        cards:
+          - type: custom:vehicle-status-card
+            name: Luna
+            images:
+              - image:
+                  media_content_id: media-source://image_upload/be32f706b06aaab6965f46e34dbe6f17
+                  media_content_type: image/png
+                  metadata:
+                    title: compositor.png
+                    thumbnail: /api/image/serve/be32f706b06aaab6965f46e34dbe6f17/256x256
+                    media_class: image
+                    navigateIds:
+                      - {}
+                      - media_content_type: app
+                        media_content_id: media-source://image_upload
+            layout_config:
+              button_grid:
+                rows: 2
+                swipe: true
+                columns: 3
+              images_swipe:
+                loop: true
+              section_order:
+                - indicators
+                - range_info
+                - images
+                - mini_map
+                - buttons
+              range_info_config:
+                layout: row
+              single_tire_card:
+                enabled: false
+                tire_card:
+                  background:
+                    media_content_id: >-
+                      media-source://image_upload/5245b3724aa3f8f4af9a883d64827372
+                    media_content_type: image/png
+                    metadata:
+                      title: ResizeImage.png
+                      thumbnail: >-
+                        /api/image/serve/5245b3724aa3f8f4af9a883d64827372/256x256
+                      media_class: image
+                      navigateIds:
+                        - {}
+                        - media_content_type: app
+                          media_content_id: media-source://image_upload
+                  front_left:
+                    entity: sensor.luna_tire_pressure_front_left
+                  front_right:
+                    entity: sensor.luna_tire_pressure_front_right
+                  rear_left:
+                    entity: sensor.luna_tire_pressure_rear_left
+                  rear_right:
+                    entity: sensor.luna_tire_pressure_rear_right
+            mini_map:
+              device_tracker: device_tracker.luna_location
+              enable_popup: true
+              use_zone_name: false
+              user_location: false
+            indicator_rows:
+              - row_items:
+                  - type: entity
+                    show_name: false
+                    show_state: true
+                    show_icon: true
+                    show_entity_picture: false
+                    include_state_template: false
+                    tap_action:
+                      action: more-info
+                    entity: sensor.luna_inside_temperature
+                    state_content: last_updated
+                    icon: mdi:eye-refresh-outline
+                  - entity: sensor.luna_inside_temperature
+                    type: entity
+                    show_name: false
+                    show_state: true
+                    show_icon: true
+                    tap_action:
+                      action: more-info
+                    show_entity_picture: false
+                    row_reverse: false
+                    include_state_template: false
+                    column_reverse: true
+                    ignore_global: false
+                  - type: entity
+                    show_name: true
+                    show_state: true
+                    show_icon: true
+                    show_entity_picture: false
+                    include_state_template: false
+                    tap_action:
+                      action: more-info
+                    entity: lock.luna_charge_cable_lock
+                    icon: mdi:ev-plug-type2
+              - row_items:
+                  - type: entity
+                    show_name: false
+                    show_state: false
+                    show_icon: true
+                    show_entity_picture: false
+                    include_state_template: false
+                    tap_action:
+                      action: more-info
+                    entity: select.luna_seat_heater_front_left
+                  - type: entity
+                    show_name: false
+                    show_state: true
+                    show_icon: true
+                    show_entity_picture: false
+                    include_state_template: false
+                    tap_action:
+                      action: more-info
+                    entity: climate.luna_climate
+                  - type: entity
+                    show_name: true
+                    show_state: true
+                    show_icon: true
+                    show_entity_picture: false
+                    include_state_template: false
+                    tap_action:
+                      action: more-info
+                    entity: sensor.luna_odometer
+                alignment: center
+            range_info:
+              - energy_level:
+                  entity: sensor.luna_battery_level
+                charging_entity: sensor.luna_charging
+                progress_color: '#10fe2c'
+                range_level:
+                  entity: sensor.luna_estimate_battery_range
+                bar_height: 20
+            button_cards:
+              - entity: climate.luna_climate
+                show_icon: true
+                show_primary: true
+                show_secondary: true
+                layout: horizontal
+                tap_action:
+                  action: perform-action
+                  perform_action: climate.set_hvac_mode
+                  target:
+                    device_id: 441469716fe85ecffae9598e27892fd6
+                  data:
+                    hvac_mode: heat_cool
+                card_type: default
+                icon_type: icon
+                primary_info: name
+                state_color: true
+                hold_action:
+                  action: toggle
+                button_type: action
+              - entity: cover.luna_trunk
+                show_icon: true
+                show_primary: true
+                show_secondary: true
+                layout: horizontal
+                button_type: action
+                tap_action:
+                  action: toggle
+                card_type: default
+                icon_type: icon
+                primary_info: name
+              - entity: lock.luna_lock
+                show_icon: true
+                show_primary: false
+                show_secondary: true
+                layout: horizontal
+                button_type: action
+                tap_action:
+                  action: toggle
+                card_type: default
+                primary_info: name
+                state_color: true
+                icon: mdi:lock
+                icon_type: icon
+                color: state
+              - entity: button.luna_flash_lights
+                show_icon: true
+                show_primary: false
+                show_secondary: false
+                layout: horizontal
+                button_type: action
+                tap_action:
+                  action: toggle
+                card_type: default
+                icon_type: icon
+                primary_info: name
+                name: Flash
+                icon: mdi:car-light-alert
+                state_color: true
+              - entity: button.luna_honk_horn
+                show_icon: true
+                show_primary: false
+                show_secondary: false
+                layout: horizontal
+                button_type: action
+                tap_action:
+                  action: more-info
+                card_type: default
+                icon_type: icon
+                primary_info: name
+                state_color: true
+              - layout: horizontal
+                transparent: false
+                show_primary: true
+                show_secondary: true
+                show_icon: true
+                tap_action:
+                  action: navigate
+                  navigation_path: ''
+                hide_button: false
+                button_type: default
+                card_type: tire
+                icon_type: icon
+                primary_info: name
+                icon: mdi:car-tire-alert
+                name: TPMS
+                sub_card:
+                  default_card:
+                    - title: Category default expanded
+                      collapsed_items: false
+                      items:
+                        - entity: person.tamas_harshegyi
+                        - entity: device_tracker.flippy_phone
+                        - entity: media_player.all_speakers_2
+                        - entity: light.living_room_lights
+                        - entity: light.office_lights
+                        - entity: binary_sensor.neolink_running
+                        - entity: binary_sensor.advanced_ssh_web_terminal_running
+                    - title: Category collapsed
+                      collapsed_items: true
+                      items:
+                        - entity: person.tamas_harshegyi
+                        - entity: device_tracker.flippy_phone
+                        - entity: media_player.all_speakers_2
+                        - entity: light.living_room_lights
+                        - entity: light.office_lights
+                        - entity: binary_sensor.neolink_running
+                        - entity: binary_sensor.advanced_ssh_web_terminal_running
+                  custom_card:
+                    - type: entities
+                      title: Custom Card
+                      entities:
+                        - entity: person.tamas_harshegyi
+                        - entity: device_tracker.flippy_phone
+                        - entity: media_player.all_speakers_2
+                        - entity: light.living_room_lights
+                        - entity: light.office_lights
+                        - entity: binary_sensor.neolink_running
+                        - entity: binary_sensor.advanced_ssh_web_terminal_running
+                  tire_card:
+                    front_left:
+                      entity: sensor.luna_tire_pressure_front_left
+                    front_right:
+                      entity: sensor.luna_tire_pressure_front_right
+                    rear_left:
+                      entity: sensor.luna_tire_pressure_rear_left
+                    rear_right:
+                      entity: sensor.luna_tire_pressure_rear_right
+                    background:
+                      media_content_id: >-
+                        media-source://image_upload/5245b3724aa3f8f4af9a883d64827372
+                      media_content_type: image/png
+                      metadata:
+                        title: ResizeImage.png
+                        thumbnail: >-
+                          /api/image/serve/5245b3724aa3f8f4af9a883d64827372/256x256
+                        media_class: image
+                        children_media_class: null
+                        navigateIds:
+                          - {}
+                          - media_content_type: app
+                            media_content_id: media-source://image_upload
+        visibility:
+          - condition: user
+            users:
+              - de2f03e03db84d6a81d0ee4c944967ee
+      - type: grid
+        cards:
+          - type: custom:vehicle-status-card
+            name: Zoe
+            images:
+              - image:
+                  media_content_id: media-source://image_upload/71c6a03f3c238a5281358ab577d0ee92
+                  media_content_type: image/png
+                  metadata:
+                    title: Renault-Zoe-2-evchargeplus-00-1.png
+                    thumbnail: /api/image/serve/71c6a03f3c238a5281358ab577d0ee92/256x256
+                    media_class: image
+                    navigateIds:
+                      - {}
+                      - media_content_type: app
+                        media_content_id: media-source://image_upload
+            layout_config:
+              button_grid:
+                rows: 2
+                swipe: true
+                columns: 1
+              images_swipe:
+                loop: true
+              section_order:
+                - indicators
+                - range_info
+                - images
+                - mini_map
+                - buttons
+              range_info_config:
+                layout: row
+              single_tire_card:
+                enabled: false
+                tire_card:
+                  background:
+                    media_content_id: >-
+                      media-source://image_upload/5245b3724aa3f8f4af9a883d64827372
+                    media_content_type: image/png
+                    metadata:
+                      title: ResizeImage.png
+                      thumbnail: >-
+                        /api/image/serve/5245b3724aa3f8f4af9a883d64827372/256x256
+                      media_class: image
+                      navigateIds:
+                        - {}
+                        - media_content_type: app
+                          media_content_id: media-source://image_upload
+                  front_left:
+                    entity: sensor.luna_tire_pressure_front_left
+                  front_right:
+                    entity: sensor.luna_tire_pressure_front_right
+                  rear_left:
+                    entity: sensor.luna_tire_pressure_rear_left
+                  rear_right:
+                    entity: sensor.luna_tire_pressure_rear_right
+            mini_map:
+              device_tracker: device_tracker.zoe_location
+              enable_popup: true
+            indicator_rows:
+              - row_items:
+                  - entity: sensor.zoe_outside_temperature
+                    type: entity
+                    show_name: false
+                    show_state: true
+                    show_icon: true
+                    tap_action:
+                      action: more-info
+                    show_entity_picture: false
+                    row_reverse: false
+                    include_state_template: false
+                    column_reverse: true
+                    ignore_global: false
+                  - type: entity
+                    show_name: false
+                    show_state: true
+                    show_icon: true
+                    show_entity_picture: false
+                    include_state_template: false
+                    tap_action:
+                      action: toggle
+                    entity: binary_sensor.zoe_lock
+                  - type: entity
+                    show_name: false
+                    show_state: true
+                    show_icon: true
+                    show_entity_picture: false
+                    include_state_template: false
+                    tap_action:
+                      action: more-info
+                    entity: binary_sensor.zoe_charging
+                    icon: mdi:ev-plug-type2
+              - row_items:
+                  - type: entity
+                    show_name: true
+                    show_state: true
+                    show_icon: true
+                    show_entity_picture: false
+                    include_state_template: false
+                    tap_action:
+                      action: more-info
+                    entity: sensor.zoe_mileage
+                alignment: center
+            range_info:
+              - energy_level:
+                  entity: sensor.zoe_battery_percentage
+                charging_entity: binary_sensor.zoe_charging
+                progress_color: '#66c8e5'
+                range_level:
+                  entity: sensor.zoe_battery_autonomy
+                bar_height: 20
+            button_cards:
+              - entity: button.zoe_start_air_conditioner
+                show_icon: true
+                show_primary: true
+                show_secondary: false
+                layout: vertical
+                button_type: default
+                tap_action:
+                  action: perform-action
+                  perform_action: climate.zoe_set_hvac_mode
+                  target:
+                    device_id: 441469716fe85ecffae9598e27892fd6
+                  data:
+                    hvac_mode: heat_cool
+                card_type: default
+                icon_type: icon
+                primary_info: name
+                state_color: true
+                name: Preheat
+          - type: tile
+            grid_options:
+              columns: full
+            entity: sensor.luna_time_to_arrival
+            vertical: false
+            features_position: bottom
+        visibility:
+          - condition: user
+            users:
+              - 09a5d0398a8548f0a9e63173c8b81634
+    cards: []
+    theme: ios-dark-mode-blue-red
+    footer:
+      card:
+        type: custom:navbar-card
+        routes:
+          - icon: mdi:home
+            label: Home
+            url: /dashboard-home/0
+            double_tap_action:
+              action: more-info
+              entity: sensor.glances_addons_disk_free
+          - icon: mdi:lightbulb-group
+            label: Lights
+            url: /dashboard-home/lights
+            badge:
+              show: false
+          - icon: mdi:car
+            label: Cars
+            url: /dashboard-home/cars
+          - icon: mdi:security
+            label: Security
+            popup:
+              - icon: mdi:cctv
+                label: Cameras
+                url: /dashboard-home/security
+              - icon: mdi:lock
+                label: Doors, Windows, Locks
+                url: /dashboard-home/security
+              - icon: mdi:shield-home
+                label: Sensors
+                url: /dashboard-home/security
+            tap_action:
+              action: open-popup
+          - icon: mdi:lightning-bolt-circle
+            label: Electricity
+            tap_action:
+              action: navigate
+              navigation_path: '#electricity'
+          - icon: mdi:cart
+            label: Shoppinglist
+            tap_action:
+              action: navigate
+              navigation_path: dashboard-home/0#shopping
+          - icon: mdi:washing-machine
+            label: Appliances
+            url: /dashboard-home
+            popup:
+              - icon: mdi:robot-vacuum
+                label: Geoffrey
+                tap_action:
+                  action: navigate
+                  navigation_path: '#geoffrey'
+                badge:
+                  show: false
+              - icon: mdi:robot-mower
+                label: Tapatio
+                tap_action:
+                  action: navigate
+                  navigation_path: '#tapatio'
+                badge:
+                  show: false
+              - icon: mdi:washing-machine
+                tap_action:
+                  action: navigate
+                  navigation_path: '#bertha'
+                label: Bertha
+            tap_action:
+              action: open-popup
+          - icon: mdi:server-security
+            label: Management
+            url: ''
+            popup:
+              - icon: mdi:server-security
+                label: Monitoring
+                url: /dashboard-management/monitoring
+              - icon: mdi:progress-download
+                label: Torrent
+                url: /db21ed7f_qbittorrent
+            badge:
+              show: false
+            tap_action:
+              action: open-popup
+        haptic:
+          url: true
+          tap_action: false
+          hold_action: true
+          double_tap_action: false
+        mobile:
+          mode: floating
+          show_labels: popup_only
+          show_popup_label_backgrounds: true
+        desktop:
+          show_labels: popup_only
+          show_popup_label_backgrounds: false
+        styles: >
+          .navbar-card.mobile.floating { --navbar-border-radius: 999px;
+          backdrop-filter: blur(33px); !important; border: none; }
+
+
+          /* BUTTON BASE */
+
+          .navbar-card.mobile.floating.button {
+            padding: 6px 10px;
+            margin: 0 2px;
+            background: transparent !important;
+          }
+
+
+          /* ICON */
+
+          .navbar-card.mobile.floating.button .icon {
+            background: transparent !important;
+            padding: 4px;
+          }
+
+
+          /* LABEL */
+
+          .navbar-card.mobile.floating.button.label {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 2px;
+          }
+
+
+          /* ACTIVE BUTTON */
+
+          .navbar-card.mobile.floating.button.active.icon,
+
+          .navbar-card.mobile.floating.button.active.label {
+            color: #ffc107 !important;
+            opacity: 1;
+          }
+
+
+          /* ICON DENSITY */
+
+          .navbar-card.mobile.floating.button ha-icon {
+            --mdc-icon-size: 22px;
+          }
+  - type: sections
+    max_columns: 4
+    title: Security
+    path: security
+    sections: []
+    cards: []
+    theme: ios-dark-mode-blue-red
+    footer:
+      card:
+        type: custom:navbar-card
+        routes:
+          - icon: mdi:home
+            label: Home
+            url: /dashboard-home/0
+            double_tap_action:
+              action: more-info
+              entity: sensor.glances_addons_disk_free
+          - icon: mdi:lightbulb-group
+            label: Lights
+            url: /dashboard-home/lights
+            badge:
+              show: false
+          - icon: mdi:car
+            label: Cars
+            url: /dashboard-home/cars
+          - icon: mdi:security
+            label: Security
+            popup:
+              - icon: mdi:cctv
+                label: Cameras
+                url: /dashboard-home/security
+              - icon: mdi:lock
+                label: Doors, Windows, Locks
+                url: /dashboard-home/security
+              - icon: mdi:shield-home
+                label: Sensors
+                url: /dashboard-home/security
+            tap_action:
+              action: open-popup
+          - icon: mdi:lightning-bolt-circle
+            label: Electricity
+            tap_action:
+              action: navigate
+              navigation_path: '#electricity'
+          - icon: mdi:cart
+            label: Shoppinglist
+            tap_action:
+              action: navigate
+              navigation_path: dashboard-home/0#shopping
+          - icon: mdi:washing-machine
+            label: Appliances
+            url: /dashboard-home
+            popup:
+              - icon: mdi:robot-vacuum
+                label: Geoffrey
+                tap_action:
+                  action: navigate
+                  navigation_path: '#geoffrey'
+                badge:
+                  show: false
+              - icon: mdi:robot-mower
+                label: Tapatio
+                tap_action:
+                  action: navigate
+                  navigation_path: '#tapatio'
+                badge:
+                  show: false
+              - icon: mdi:washing-machine
+                tap_action:
+                  action: navigate
+                  navigation_path: '#bertha'
+                label: Bertha
+            tap_action:
+              action: open-popup
+          - icon: mdi:server-security
+            label: Management
+            url: ''
+            popup:
+              - icon: mdi:server-security
+                label: Monitoring
+                url: /dashboard-management/monitoring
+              - icon: mdi:progress-download
+                label: Torrent
+                url: /db21ed7f_qbittorrent
+            badge:
+              show: false
+            tap_action:
+              action: open-popup
+        haptic:
+          url: true
+          tap_action: false
+          hold_action: true
+          double_tap_action: false
+        mobile:
+          mode: floating
+          show_labels: popup_only
+          show_popup_label_backgrounds: true
+        desktop:
+          show_labels: popup_only
+          show_popup_label_backgrounds: false
+        styles: >
+          .navbar-card.mobile.floating { --navbar-border-radius: 999px;
+          backdrop-filter: blur(33px); !important; border: none; }
+
+
+          /* BUTTON BASE */
+
+          .navbar-card.mobile.floating.button {
+            padding: 6px 10px;
+            margin: 0 2px;
+            background: transparent !important;
+          }
+
+
+          /* ICON */
+
+          .navbar-card.mobile.floating.button .icon {
+            background: transparent !important;
+            padding: 4px;
+          }
+
+
+          /* LABEL */
+
+          .navbar-card.mobile.floating.button.label {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 2px;
+          }
+
+
+          /* ACTIVE BUTTON */
+
+          .navbar-card.mobile.floating.button.active.icon,
+
+          .navbar-card.mobile.floating.button.active.label {
+            color: #ffc107 !important;
+            opacity: 1;
+          }
+
+
+          /* ICON DENSITY */
+
+          .navbar-card.mobile.floating.button ha-icon {
+            --mdc-icon-size: 22px;
+          }
+  - type: sections
+    max_columns: 2
+    title: Living Room
+    path: living-room
+    sections:
+      - type: grid
+        cards:
+          - type: media-control
+            entity: media_player.living_room_tv_3
+            grid_options:
+              columns: 12
+              rows: 4
+          - type: media-control
+            visibility:
+              - condition: state
+                entity: media_player.living_room_tv_3
+                state: playing
+            entity: media_player.living_room_tv_3
+    cards: []
+    theme: ios-dark-mode-blue-red
+    footer:
+      card:
+        type: custom:navbar-card
+        routes:
+          - icon: mdi:home
+            label: Home
+            url: /dashboard-home/0
+            double_tap_action:
+              action: more-info
+              entity: sensor.glances_addons_disk_free
+          - icon: mdi:lightbulb-group
+            label: Lights
+            url: /dashboard-home/lights
+            badge:
+              show: false
+          - icon: mdi:car
+            label: Cars
+            url: /dashboard-home/cars
+          - icon: mdi:security
+            label: Security
+            popup:
+              - icon: mdi:cctv
+                label: Cameras
+                url: /dashboard-home/security
+              - icon: mdi:lock
+                label: Doors, Windows, Locks
+                url: /dashboard-home/security
+              - icon: mdi:shield-home
+                label: Sensors
+                url: /dashboard-home/security
+            tap_action:
+              action: open-popup
+          - icon: mdi:lightning-bolt-circle
+            label: Electricity
+            tap_action:
+              action: navigate
+              navigation_path: '#electricity'
+          - icon: mdi:cart
+            label: Shoppinglist
+            tap_action:
+              action: navigate
+              navigation_path: dashboard-home/0#shopping
+          - icon: mdi:washing-machine
+            label: Appliances
+            url: /dashboard-home
+            popup:
+              - icon: mdi:robot-vacuum
+                label: Geoffrey
+                tap_action:
+                  action: navigate
+                  navigation_path: '#geoffrey'
+                badge:
+                  show: false
+              - icon: mdi:robot-mower
+                label: Tapatio
+                tap_action:
+                  action: navigate
+                  navigation_path: '#tapatio'
+                badge:
+                  show: false
+              - icon: mdi:washing-machine
+                tap_action:
+                  action: navigate
+                  navigation_path: '#bertha'
+                label: Bertha
+            tap_action:
+              action: open-popup
+          - icon: mdi:server-security
+            label: Management
+            url: ''
+            popup:
+              - icon: mdi:server-security
+                label: Monitoring
+                url: /dashboard-management/monitoring
+              - icon: mdi:progress-download
+                label: Torrent
+                url: /db21ed7f_qbittorrent
+            badge:
+              show: false
+            tap_action:
+              action: open-popup
+        haptic:
+          url: true
+          tap_action: false
+          hold_action: true
+          double_tap_action: false
+        mobile:
+          mode: floating
+          show_labels: popup_only
+          show_popup_label_backgrounds: true
+        desktop:
+          show_labels: popup_only
+          show_popup_label_backgrounds: false
+        styles: >
+          .navbar-card.mobile.floating { --navbar-border-radius: 999px;
+          backdrop-filter: blur(33px); !important; border: none; }
+
+
+          /* BUTTON BASE */
+
+          .navbar-card.mobile.floating.button {
+            padding: 6px 10px;
+            margin: 0 2px;
+            background: transparent !important;
+          }
+
+
+          /* ICON */
+
+          .navbar-card.mobile.floating.button .icon {
+            background: transparent !important;
+            padding: 4px;
+          }
+
+
+          /* LABEL */
+
+          .navbar-card.mobile.floating.button.label {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 2px;
+          }
+
+
+          /* ACTIVE BUTTON */
+
+          .navbar-card.mobile.floating.button.active.icon,
+
+          .navbar-card.mobile.floating.button.active.label {
+            color: #ffc107 !important;
+            opacity: 1;
+          }
+
+
+          /* ICON DENSITY */
+
+          .navbar-card.mobile.floating.button ha-icon {
+            --mdc-icon-size: 22px;
+          }
