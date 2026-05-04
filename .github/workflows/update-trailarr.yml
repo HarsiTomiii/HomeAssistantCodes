@@ -5,6 +5,10 @@ on:
     - cron: "0 4 * * *"  # Runs daily at 04:00 UTC
   workflow_dispatch:       # Allows manual trigger from GitHub Actions tab
 
+permissions:
+  contents: write   # <-- required for pushing commit
+
+
 jobs:
   update-version:
     runs-on: ubuntu-latest
