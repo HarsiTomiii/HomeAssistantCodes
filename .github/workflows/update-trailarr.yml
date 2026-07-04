@@ -1,41 +1,49 @@
 name: Update Trailarr Version
-
 on:
   schedule:
     - cron: "0 4 * * *"  # Runs daily at 04:00 UTC
   workflow_dispatch:       # Allows manual trigger from GitHub Actions tab
-
 permissions:
   contents: write   # <-- required for pushing commit
-
-
 jobs:
   update-version:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
-
       - name: Get latest Trailarr release version
         id: trailarr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          LATEST=$(curl -s https://api.github.com/repos/nandyalu/trailarr/releases/latest | jq -r '.tag_name' | sed 's/^v//')
+          RESPONSE=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            https://api.github.com/repos/nandyalu/trailarr/releases/latest)
+          LATEST=$(echo "$RESPONSE" | jq -r '.tag_name' | sed 's/^v//')
+
+          # Validate: must be non-empty, not the string "null", and look like a version
+          if [ -z "$LATEST" ] || [ "$LATEST" = "null" ]; then
+            echo "::error::Failed to fetch a valid version. API returned:"
+            echo "$RESPONSE" | jq -r '.message // "no message"'
+            exit 1
+          fi
+          if ! echo "$LATEST" | grep -qE '^[0-9]+\.[0-9]+'; then
+            echo "::error::Fetched version '$LATEST' doesn't look valid. Aborting."
+            exit 1
+          fi
+
           echo "version=$LATEST" >> $GITHUB_OUTPUT
           echo "Latest Trailarr version: $LATEST"
-
       - name: Get current addon version
         id: current
         run: |
           CURRENT=$(grep '^version:' trailarr/config.yaml | awk '{print $2}' | tr -d '"')
           echo "version=$CURRENT" >> $GITHUB_OUTPUT
           echo "Current addon version: $CURRENT"
-
       - name: Update config.yaml if version changed
         if: steps.trailarr.outputs.version != steps.current.outputs.version
         run: |
           sed -i "s/^version: .*/version: \"${{ steps.trailarr.outputs.version }}\"/" trailarr/config.yaml
           echo "Updated config.yaml to version ${{ steps.trailarr.outputs.version }}"
-
       - name: Commit and push update
         if: steps.trailarr.outputs.version != steps.current.outputs.version
         run: |
