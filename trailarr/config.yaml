@@ -21,7 +21,11 @@ ports_description:
   7889/tcp: "Trailarr Web UI"
 map:
   - media:rw
-  - config:rw
+  - addon_config:rw      # was: config:rw  → /config inside the container becomes
+                         #   /addon_configs/a173e1b7_trailarr instead of HA's config
+backup_exclude:
+  - "logs"               # 79 MB log database, not worth backing up
+
 options:
   PUID: 1000
   PGID: 1000
